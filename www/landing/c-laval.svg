@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.02 21.82">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #A3B0D1;
+      }
+
+      .cls-2 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-3 {
+        font-family: FFFAcidGrotesk-Book, 'FFF Acid Grotesk';
+        font-size: 19px;
+      }
+
+      .cls-4 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.03em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <path class="cls-1" d="m27.53,0h51.95c1.4,0,2.53,1.79,2.53,4v13c0,2.21-1.13,4-2.53,4H27.53c-1.4,0-2.53-1.79-2.53-4V4c0-2.21,1.13-4,2.53-4Z"/>
+    <rect class="cls-1" y=".03" width="20.74" height="20.74" rx="4" ry="4"/>
+    <path d="m17.68,8.68v-2.81h-1.97c-.44,0-.79-.35-.79-.79,0,0,0,0,0,0v-1.97H5.84v1.98c0,.44-.35.79-.79.79h-1.98v9.1h1.98c.44,0,.79.35.79.79v1.98h9.07v-1.98c0-.44.35-.79.79-.79h1.97v-2.81h-2.8v1.98c0,.44-.35.79-.79.79h-7.42c-.44,0-.79-.35-.79-.79,0,0,0,0,0,0v-7.44c0-.44.35-.79.79-.79h7.42c.44,0,.79.36.79.79v1.97h2.8Z"/>
+    <path class="cls-1" d="m20.33,7.22h5.13v5.13h-5.13v-5.13Z"/>
+    <path class="cls-1" d="m22.89,7.22c-1.81,0-2.19-1.78-2.16-2.67l-.92,1.44v2.15h3.08v-.92h0Zm0,5.03c-1.81,0-2.19,1.78-2.16,2.67l-.92-1.44v-2.16h3.08v.92Zm.31-5.03c1.81,0,2.19-1.78,2.16-2.67l.92,1.44v2.15h-3.08v-.92h0Zm0,5.03c1.81,0,2.19,1.78,2.16,2.67l.92-1.44v-2.16h-3.08v.92Z"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <text class="cls-3" transform="translate(30.94 17.72)"><tspan class="cls-4" x="0" y="0">L</tspan><tspan class="cls-2" x="9.37" y="0">a</tspan><tspan class="cls-5" x="19.91" y="0">v</tspan><tspan x="29.45" y="0">al</tspan></text>
+  </g>
+</svg>
