@@ -14,14 +14,14 @@ db_create_schema_prod(inst_prefix)
 
 # Possible sequences for autozooms. Every module must have one or multiple of these
 # possible scale sequences.
-scales_sequences <- list(c("secteur", "CT", "DA", "building"),
+scales_sequences <- list(c("secteur", "CT", "DA"),
                          c("secteur", "CT"),
-                         c("exmuni", "CT", "DA", "building"),
+                         c("exmuni", "CT", "DA"),
                          c("exmuni", "CT"),
-                         c("cmhczone", "CT", "DA", "building"),
+                         c("cmhczone", "CT", "DA"),
                          c("cmhczone", "CT"),
                          c("cmhczone"),
-                         c("CLSC", "CT", "DA", "building"),
+                         c("CLSC", "CT", "DA"),
                          c("CLSC", "CT"),
                          c("grd600", "grd300", "grd120", "grd60", "grd30"))
 
@@ -159,7 +159,7 @@ scales_dictionary <- append_scale_to_dictionary(
 # building <- cc.data::db_read_data("buildings", column_to_select = "DA_ID",
 #                                   IDs = census_scales$DA$ID)
 # qs::qsave(building, file = "dev/data/built/building.qs")
-building <- qs::qread("dev/data/built/building.qs")
+# building <- qs::qread("dev/data/built/building.qs")
 
 # Add building scale to the dictionary
 scales_dictionary <-
@@ -175,6 +175,7 @@ scales_dictionary <-
     subtext = NA)
 
 ### Build CMHC scale
+
 cmhczone <- get_cmhc_zones(list(CSD = cancensus_csd_code))
 cmhczone <- additional_scale(additional_table = cmhczone,
                              DB_table = census_scales$DB,
@@ -200,8 +201,8 @@ scales_dictionary <-
 
 ndvigrids <- ndvi_grids(census_scales = census_scales,
                         base_polygons = base_polygons,
-                        overwrite_ndvi_tiles = FALSE,
-                        overwrite_final_grids = FALSE,
+                        overwrite_ndvi_tiles = TRUE,
+                        overwrite_final_grids = TRUE,
                         crs = crs)
 
 scales_dictionary <- scales_dictionary_ndvi(scales_dictionary)
@@ -212,7 +213,7 @@ scales_dictionary <- scales_dictionary_ndvi(scales_dictionary)
 all_scales <- c(census_scales,
                 list(secteur = lavalsector),
                 list(exmuni = anciennemuni),
-                list(building = building),
+                # list(building = building),
                 list(cmhczone = cmhczone),
                 list(CLSC = CLSC),
                 ndvigrids)
@@ -220,7 +221,7 @@ all_scales <- c(census_scales,
 # Character vector of the tables that will be saved in the database instead of
 # in the container. These tables WON'T be available for dynamic filtering using
 # region in the `curbcut::data_get()` function.
-large_tables_db <- c("building", "grd30", "grd60", "grd120", "grd300")
+large_tables_db <- c("grd30", "grd60", "grd120", "grd300")
 
 save.image("dev/data/built/pre_consolidate.RData")
 load("dev/data/built/pre_consolidate.RData")
@@ -268,6 +269,7 @@ save_bslike_postgresql(all_scales = scales_consolidated$scales,
                        inst_prefix = inst_prefix,
                        overwrite = FALSE)
 
+
 qs::qsave(scales_dictionary, file = "data/scales_dictionary.qs")
 qs::qsave(regions_dictionary, file = "data/regions_dictionary.qs")
 
@@ -283,7 +285,7 @@ scales_variables_modules$data <- lapply(scales_consolidated$scales, \(x) list())
 qs::qsave(scales_consolidated, "dev/data/built/scales_consolidated.qs")
 qs::qsavem(census_scales, scales_variables_modules, crs, base_polygons,
            cancensus_csd_code, scales_consolidated, scales_sequences, DB_table,
-           scales_dictionary, regions_dictionary, inst_prefix,
+           scales_dictionary, regions_dictionary, inst_prefix, large_tables_db,
            file = "dev/data/built/empty_scales_variables_modules.qsm")
 rm(list = ls())
 library(cc.buildr)
@@ -294,9 +296,9 @@ qs::qload("dev/data/built/empty_scales_variables_modules.qsm")
 
 future::plan(future::multisession, workers = 4)
 
-# No data is added to the buildings yet, onload it
-scales_variables_modules$scales <-
-  unload_scales(scales_variables_modules$scales, unload = c("building"))
+# # No data is added to the buildings yet, onload it
+# scales_variables_modules$scales <-
+#   unload_scales(scales_variables_modules$scales, unload = c("building"))
 
 scales_variables_modules <-
   ba_census_data(scales_variables_modules = scales_variables_modules,
@@ -305,7 +307,8 @@ scales_variables_modules <-
                  crs = crs,
                  scales_sequences = scales_sequences,
                  overwrite = FALSE,
-                 inst_prefix = inst_prefix)
+                 inst_prefix = inst_prefix,
+                 large_tables_db = large_tables_db)
 census_variables <- get_census_vectors_details()
 
 # Build NDVI first to unload heavy grids
@@ -329,10 +332,17 @@ scales_variables_modules <-
               inst_prefix = inst_prefix,
               overwrite = FALSE)
 scales_variables_modules <-
+  ru_starts_completions(scales_variables_modules = scales_variables_modules,
+                        scales_sequences = scales_sequences,
+                        crs = crs,
+                        geo_uid = 24462,
+                        inst_prefix = inst_prefix,
+                        overwrite = TRUE)
+scales_variables_modules <-
   ru_alp(scales_variables_modules = scales_variables_modules,
          scales_sequences = scales_sequences,
          crs = crs,
-         region_DA_IDs = census_scales$DA$ID,
+         region_DB_IDs = census_scales$DB$ID,
          overwrite = FALSE,
          inst_prefix = inst_prefix)
 scales_variables_modules <-
@@ -349,6 +359,28 @@ scales_variables_modules <-
          crs = crs,
          overwrite = FALSE,
          inst_prefix = inst_prefix)
+
+scales_variables_modules <-
+  ba_socialmixity(scales_variables_modules = scales_variables_modules,
+                  scales_sequences = scales_sequences,
+                  crs = crs,
+                  region_DA_IDs = census_scales$DA$ID,
+                  overwrite = FALSE,
+                  inst_prefix = inst_prefix)
+
+# scales_variables_modules$variables <-
+#   scales_variables_modules$variables[!scales_variables_modules$variables$var_code %in% c("defav_material", "defav_social"), ]
+# scales_variables_modules$modules <-
+#   scales_variables_modules$modules[!scales_variables_modules$modules$id == "defav", ]
+
+
+scales_variables_modules <-
+  ru_deprivation(scales_variables_modules = scales_variables_modules,
+                 scales_sequences = scales_sequences,
+                 crs = crs,
+                 region_DA_IDs = census_scales$DA$ID,
+                 overwrite = FALSE,
+                 inst_prefix = inst_prefix)
 
 
 # # Add access to amenities module
@@ -395,7 +427,7 @@ scales_variables_modules <-
     scales_variables_modules = scales_variables_modules,
     scales_sequences = scales_sequences,
     crs = crs,
-    overwrite = FALSE,
+    overwrite = T,
     inst_prefix = inst_prefix)
 
 scales_variables_modules <-
@@ -403,7 +435,7 @@ scales_variables_modules <-
     scales_variables_modules = scales_variables_modules,
     scales_sequences = scales_sequences,
     crs = crs,
-    overwrite = FALSE,
+    overwrite = T,
     inst_prefix = inst_prefix)
 
 scales_variables_modules <-
@@ -411,16 +443,23 @@ scales_variables_modules <-
     scales_variables_modules = scales_variables_modules,
     scales_sequences = scales_sequences,
     crs = crs,
-    overwrite = FALSE,
+    overwrite = T,
     inst_prefix = inst_prefix)
 
 # Post process
 scales_variables_modules$scales <-
-  cc.buildr::post_processing(scales = scales_variables_modules$scales)
+  post_processing(scales = scales_variables_modules$scales)
+# Adding right-hand variables
+scales_variables_modules <- add_var_right(scales_variables_modules)
+# Add high correlation combinations
+scales_variables_modules <- add_high_corr_combination(scales_variables_modules)
 
 qs::qsavem(census_scales, scales_variables_modules, crs, census_variables,
            base_polygons, scales_sequences, regions_dictionary, inst_prefix,
+           large_tables_db,
            scales_dictionary, file = "dev/data/built/scales_variables_modules.qsm")
+library(cc.buildr)
+library(sf)
 qs::qload("dev/data/built/scales_variables_modules.qsm")
 
 # Postal codes ------------------------------------------------------------
@@ -439,11 +478,11 @@ map_zoom_levels_save(data_folder = "data/", map_zoom_levels = map_zoom_levels)
 
 
 # Tilesets ----------------------------------------------------------------
-
-tileset_upload_all(map_zoom_levels = map_zoom_levels,
-                   inst_prefix = inst_prefix,
-                   username = "curbcut",
-                   access_token = .cc_mb_token)
+#
+# tileset_upload_all(map_zoom_levels = map_zoom_levels,
+#                    inst_prefix = inst_prefix,
+#                    username = "curbcut",
+#                    access_token = .cc_mb_token)
 
 # tileset_upload_ndvi(map_zoom_levels = map_zoom_levels,
 #                     regions = base_polygons$regions,
@@ -492,12 +531,6 @@ scales_variables_modules$modules <-
 # Produce colours ---------------------------------------------------------
 
 colours_dfs <- cc.buildr::build_colours()
-
-# Add natural inf data colours
-colours_dfs$viridis_25 <-
-  tibble::tibble(group = as.character(26:50),
-                 fill = scales::viridis_pal()(25))
-qs::qsave(colours_dfs, "data/colours_dfs.qs")
 
 
 # Write stories -----------------------------------------------------------
@@ -552,19 +585,6 @@ save_all_scales_qs(scales_dictionary = scales_dictionary)
 # Save other global data --------------------------------------------------
 
 qs::qsave(census_variables, file = "data/census_variables.qs")
-
-# For compare, only keep the large brackets of age
-scales_variables_modules$modules$var_right <- lapply(
-  scales_variables_modules$modules$var_right, \(x) {
-    if (is.null(x)) return(NULL)
-    not_age <- x[!grepl("^age_", x)]
-    age <- x[grepl("^age_", x)]
-
-    age_keep <- age[age %in% c("age_0_14", "age_15_64", "age_65_plus")]
-
-    c(not_age, age_keep)
-  })
-
 qs::qsave(scales_variables_modules$modules, file = "data/modules.qs")
 tictoc::toc()
 
@@ -577,7 +597,8 @@ dyk <- dyk_uni(vars_dyk,
                svm = scales_variables_modules,
                translation_df = translation_df,
                langs = c("en", "fr"),
-               scales_dictionary = scales_dictionary)
+               scales_dictionary = scales_dictionary,
+               regions_dictionary = regions_dictionary)
 # dyk <- rbind(dyk, dyk_delta(vars_dyk, scales_variables_modules))
 # dyk <- rbind(dyk, dyk_bivar(vars_dyk, scales_variables_modules))
 qs::qsave(dyk, "data/dyk.qs")
@@ -616,7 +637,7 @@ placeex_main_card_rmd(pe_main_card_data = pe_main_card_data,
                       tileset_prefix = inst_prefix,
                       mapbox_username = "curbcut",
                       rev_geocode_from_localhost = TRUE,
-                      overwrite = FALSE,
+                      overwrite = TRUE,
                       scales_sequences = scales_sequences)
 
 # Save the place explorer files, which serves as a 'does it exist' for `curbcut`

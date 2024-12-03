@@ -241,6 +241,7 @@ build_and_append_laval_access <- function(scales_variables_modules,
       exp_q5 = exp_q5,
       group_name = group_name,
       group_diff = group_diff,
+      classification = "other",
       parent_vec = "population",
       theme = "Transport",
       private = FALSE,
@@ -254,7 +255,10 @@ build_and_append_laval_access <- function(scales_variables_modules,
         "just about average", "unusually dense",
         "exceptionally dense"
       ),
-      var_measurement = var_measurement
+      var_measurement = var_measurement,
+      schema = list(time = time_regex,
+                    transportationtime = "_\\d{1,2}"),
+      breaks_var = paste0(var, "_20_2024")
     ) |>
       (\(x) x[nrow(x), ])()
   })

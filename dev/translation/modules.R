@@ -1,98 +1,128 @@
 # library(tibble)
-# 
+#
 # # Translation function
 # .t <- function(x) deeplr::toFrench2(x, auth_key = .deepl_key)
 # translation_fun <- function(strings) {
 #   z <- lapply(strings, \(x) {
 #     fr <- .t(x)
-#     sprintf('add_row(en = "%s", 
+#     sprintf('add_row(en = "%s",
 #           fr = "%s")', x, fr)
 #   })
-#   paste0(z, collapse = " |>\n") |> 
+#   paste0(z, collapse = " |>\n") |>
 #     writeLines()
 # }
-# 
+#
 # # Load modules
 # modules <- qs::qread("data/modules.qs")
-# 
+#
 # # Change which column is subset
 # strings <- modules$dataset_info
-# 
+#
 # translation_fun(strings)
 
 #nav_title
-translation_pages <- 
+translation_pages <-
   tibble(en = character(),
-         fr = character()) |> 
-  add_row(en = "Housing system", 
+         fr = character()) |>
+  add_row(en = "Housing system",
           fr = "Système de logement") |>
-  add_row(en = "Age demographics", 
+  add_row(en = "Age demographics",
           fr = "Démographie par âge") |>
-  add_row(en = "Vacancy rate", 
+  add_row(en = "Vacancy rate",
           fr = "Taux d'inoccupation") |>
-  add_row(en = "Active living potential", 
+  add_row(en = "Active living potential",
           fr = "Potentiel de vie active") |>
-  add_row(en = "Access to amenities", 
+  add_row(en = "Access to amenities",
           fr = "Accès aux services et commodités") |>
-  add_row(en = "Climate risk", 
+  add_row(en = "Climate risk",
           fr = "Risque climatique") |>
-  add_row(en = "Natural infrastructure", 
+  add_row(en = "Natural infrastructure",
           fr = "Infrastructures naturelles") |>
-  add_row(en = "Green alleys", 
+  add_row(en = "Green alleys",
           fr = "Ruelles vertes") |>
-  add_row(en = "Housing affordability", 
+  add_row(en = "Housing affordability",
           fr = "Abordabilité du logement") |>
-  add_row(en = "Road safety", 
+  add_row(en = "Road safety",
           fr = "Sécurité routière") |>
-  add_row(en = "Bikeway comfort and safety", 
+  add_row(en = "Bikeway comfort and safety",
           fr = "Confort et sécurité des voies cyclables") |>
-  add_row(en = "Place explorer", 
+  add_row(en = "Place explorer",
           fr = "Explorez un lieu") |>
-  add_row(en = "Montreal stories", 
-          fr = "Histoires de Montréal") |> 
-  add_row(en = "Tenure status", 
-          fr = "Statut d'occupation") |> 
+  add_row(en = "Montreal stories",
+          fr = "Histoires de Montréal") |>
+  add_row(en = "Tenure status",
+          fr = "Statut d'occupation") |>
   add_row(en = "Land surface temperature",
-          fr = "Température au sol") |> 
+          fr = "Température au sol") |>
   add_row(en = "age",
-          fr = "age") |> 
-  
+          fr = "age") |>
+  add_row(en = "Age",
+          fr = "Âge") |>
+  add_row(en = "Citizenship and identity",
+          fr = "Citoyenneté et identité") |>
+  add_row(en = "Dwelling characteristics",
+          fr = "Caractéristiques des logements") |>
+  add_row(en = "Language characteristics",
+          fr = "Caractéristiques linguistiques") |>
+  add_row(en = "Household size",
+          fr = "Taille des ménages") |>
+  add_row(en = "Education levels",
+          fr = "Niveaux d'éducation") |>
+
   #title_text_title
-  add_row(en = "The housing system", 
+  add_row(en = "The housing system",
           fr = "Le système de logement") |>
-  add_row(en = "Age distribution", 
+  add_row(en = "Age distribution",
           fr = "Répartition par âge") |>
-  add_row(en = "Vacancy rate", 
+  add_row(en = "Vacancy rate",
           fr = "Taux d'inoccupation") |>
-  add_row(en = "Active Living Potential", 
+  add_row(en = "Active Living Potential",
           fr = "Potentiel de vie active") |>
-  add_row(en = "Access to amenities", 
+  add_row(en = "Access to amenities",
           fr = "Accès aux services et commodités") |>
-  add_row(en = "Climate change risk", 
+  add_row(en = "Climate change risk",
           fr = "Risque lié au changement climatique") |>
-  add_row(en = "Natural infrastructure", 
+  add_row(en = "Natural infrastructure",
           fr = "Infrastructures naturelles") |>
-  add_row(en = "Green alleys", 
+  add_row(en = "Green alleys",
           fr = "Ruelles vertes") |>
-  add_row(en = "Housing affordability", 
+  add_row(en = "Housing affordability",
           fr = "Abordabilité du logement") |>
-  add_row(en = "Road safety: Car crashes", 
+  add_row(en = "Road safety: Car crashes",
           fr = "Sécurité routière : Collisions de voiture") |>
-  add_row(en = "Place explorer", 
+  add_row(en = "Place explorer",
           fr = "Explorez un lieu") |>
-  add_row(en = "Montreal stories", 
-          fr = "Histoires de Montréal") |> 
+  add_row(en = "Montreal stories",
+          fr = "Histoires de Montréal") |>
   add_row(en = "Bikeway comfort and safety: the Can-BICS index",
-          fr = "Confort et sécurité des pistes cyclables : l'indice Can-BICS") |> 
-  
-  #title_text_main
-  add_row(en = "<p>Housing is at the centre of our lives. Our ability to find affordable, adequate, and healthy accommodations profoundly affects our life chances.", 
-          fr = "<p>Le logement est au cœur de nos vies. Notre capacité à trouver un logement abordable, adéquat et sain affecte profondément nos chances dans la vie.") |>
+          fr = "Confort et sécurité des pistes cyclables : l'indice Can-BICS") |>
+  add_row(en = "Citizenship and Immigration Status",
+          fr = "Citoyenneté et statut d'immigration") |>
+  add_row(en = "Dwelling characteristics",
+          fr = "Caractéristiques des logements") |>
+  add_row(en = "Dwelling characteristic",
+          fr = "Caractéristique des logements") |>
+  add_row(en = "Language characteristics",
+          fr = "Caractéristiques linguistiques") |>
+  add_row(en = "Language characteristic",
+          fr = "Caractéristique linguistique") |>
+  add_row(en = "Household size distribution",
+          fr = "Répartition de la taille des ménages") |>
+  add_row(en = "Education levels",
+          fr = "Niveaux d'éducation") |>
+  add_row(en = "Social mixity index",
+          fr = "Indice de mixité sociale") |>
+add_row(en = "Housing development phase",
+        fr = "Phase de développement") |>
+
+#title_text_main
+add_row(en = "<p>Housing is at the centre of our lives. Our ability to find affordable, adequate, and healthy accommodations profoundly affects our life chances.",
+        fr = "<p>Le logement est au cœur de nos vies. Notre capacité à trouver un logement abordable, adéquat et sain affecte profondément nos chances dans la vie.") |>
   add_row(en = paste0(
     "<p>The rental vacancy rate measures the percentage of purpose-built re",
     "ntal apartments which are vacant and available for rent at a given tim",
     "e. Vacancy rates below 3% suggest a serious rental housing crisis."
-  ), 
+  ),
   fr = paste0(
     "Le taux d'inoccupation locatif mesure le pourcentage de logements loca",
     "tifs construits à cet effet qui sont vacants et disponibles à la locat",
@@ -100,24 +130,24 @@ translation_pages <-
     "uent une grave crise du logement locatif."
   )
   ) |>
-  add_row(en = "<p>The walkability of an area is influenced by both the built environment and socio-economic factors. The Active Living Potential index quantifies which areas provide walkable environments to their residents.", 
+  add_row(en = "<p>The walkability of an area is influenced by both the built environment and socio-economic factors. The Active Living Potential index quantifies which areas provide walkable environments to their residents.",
           fr = "<p>Le potentiel de vie active (PVA) d'une zone est influencé à la fois par l'environnement bâti et par des facteurs socio-économiques. L'indice du potentiel de vie active quantifie les zones qui offrent un environnement propice à la marche à leurs habitants.") |>
   add_row(en = paste0(
     "<p>Neighbourhood accessibility is an important contributor to quality ",
     "of life. It can be measured by how counting many amenities can be reac",
     "hed from a location for a given time and mode of transportation."
-  ), 
+  ),
   fr = paste0(
     "L'accessibilité au voisinage est un facteur important de la qualité de",
     " vie. Elle peut être mesurée par le nombre de services accessibles à p",
     "artir d'un lieu donné en un temps donné et par un mode de transport do",
     "nné."
   )) |>
-  add_row(en = "<p>Climate change will have increasingly negative impacts on communities in Montreal, but these will vary significantly by both geographic and social factors. The distribution of five different climate risks – heat waves, flooding, heavy rain, drought, and destructive storms – is visualized here.", 
+  add_row(en = "<p>Climate change will have increasingly negative impacts on communities in Montreal, but these will vary significantly by both geographic and social factors. The distribution of five different climate risks – heat waves, flooding, heavy rain, drought, and destructive storms – is visualized here.",
           fr = "<p>Les changements climatiques auront des impacts de plus en plus négatifs sur les communautés de Montréal, mais ceux-ci varieront considérablement en fonction des facteurs géographiques et sociaux. La distribution de cinq risques climatiques différents - vagues de chaleur, crues, pluies abondantes, sécheresse et tempêtes destructrices - est visualisée ici.") |>
-  add_row(en = "<p>Natural ecosystems contribute to well-being, quality of life and public health in cities. This page quantifies the benefits provided by urban trees and wooded areas to biodiversity conservation, flood prevention, and heat-island reduction. ", 
+  add_row(en = "<p>Natural ecosystems contribute to well-being, quality of life and public health in cities. This page quantifies the benefits provided by urban trees and wooded areas to biodiversity conservation, flood prevention, and heat-island reduction. ",
           fr = "Les écosystèmes naturels contribuent au bien-être, à la qualité de vie et à la santé publique dans les villes. Cette page quantifie les avantages apportés par les arbres urbains et les zones boisées à la conservation de la biodiversité, à la prévention des inondations et à la réduction des îlots de chaleur.") |>
-  add_row(en = "<p>Green alleys are spaces that have been transformed by residents for their own activities. When adequately designed, these public spaces can help reduce heat island effects, noise, and air pollution.", 
+  add_row(en = "<p>Green alleys are spaces that have been transformed by residents for their own activities. When adequately designed, these public spaces can help reduce heat island effects, noise, and air pollution.",
           fr = "Les ruelles vertes sont des espaces transformés par les habitants pour leurs propres activités. Lorsqu'elles sont bien conçus, ces espaces publics peuvent contribuer à réduire l'effet d'îlot de chaleur, le bruit et la pollution de l'air.") |>
   add_row(en = paste0(
     "<p><img src='centraide_logo/centraide_logo_en.png' style='width:60%;ma",
@@ -126,12 +156,12 @@ translation_pages <-
     "sing is often defined as affordable when a household spends less than ",
     "30% of its income on shelter, but the reality for each household is mu",
     "ch more complex."
-  ), 
+  ),
   fr = "<p><img src='centraide_logo/centraide_logo_fr.png' style='width:60%;margin-left:50px;'>L'accès à un logement abordable est un droit de l'homme fondamental, mais il reste un défi pressant pour de nombreuses communautés. Le logement est souvent défini comme abordable lorsqu'un ménage dépense moins de 30 % de ses revenus pour se loger, mais la réalité de chaque ménage est beaucoup plus complexe.") |>
   add_row(en = paste0("<p>Road safety is an important consideration for wellbeing and safety ",
                       "in cities. This page displays all road collisions in the City of Montr",
                       "eal."
-  ), 
+  ),
   fr = paste0(
     "La sécurité routière est un élément important pour le bien-être et la ",
     "sécurité dans les villes. Cette page affiche toutes les collisions rou",
@@ -142,68 +172,311 @@ translation_pages <-
     "<p>Road safety is an important consideration for wellbeing and safety ",
     "in cities. This page displays all road collisions in the City of Montr",
     "eal."
-  ), 
+  ),
   fr = "<p>La sécurité routière est une considération importante pour le bien-être et la sécurité dans les villes. Ce module fournit une vue d'ensemble et une analyse des collisions routières dans la ville de Montréal, de 2012 à aujourd'hui.") |>
-  add_row(en = "Select a location by entering a postal code or clicking on the map to see how it compares to the rest of the region across a variety of sustainability indicators.", 
+  add_row(en = "Select a location by entering a postal code or clicking on the map to see how it compares to the rest of the region across a variety of sustainability indicators.",
           fr = "Sélectionnez un lieu en entrant un code postal ou en cliquant sur la carte pour voir comment il se situe par rapport au reste de la région en fonction d'une série d'indicateurs de durabilité.") |>
-  add_row(en = "Explore narrative case studies about specific urban sustainability and planning issues in the Montreal region.", 
-          fr = "Explorer des études de cas narratives sur des questions spécifiques de durabilité urbaine et de planification dans la région de Montréal.") |> 
+  add_row(en = "Explore narrative case studies about specific urban sustainability and planning issues in the Montreal region.",
+          fr = "Explorer des études de cas narratives sur des questions spécifiques de durabilité urbaine et de planification dans la région de Montréal.") |>
   add_row(en = paste0(
     "<p><img src='centraide_logo/centraide_logo_en.png' ",
     "style='width:60%;margin-left:50px;'><p>Tenure status measures whether ",
     "a household owns or rents its home. Housing needs can vary ",
     "dramatically by tenure status."
-  ), fr = "<p><img src='centraide_logo/centraide_logo_fr.png' style='width:60%;margin-left:50px;'>Le statut d'occupation mesure si un ménage est propriétaire ou locataire de son logement. Les besoins en matière de logement peuvent varier considérablement en fonction du statut d'occupation.") |> 
+  ), fr = "<p><img src='centraide_logo/centraide_logo_fr.png' style='width:60%;margin-left:50px;'>Le statut d'occupation mesure si un ménage est propriétaire ou locataire de son logement. Les besoins en matière de logement peuvent varier considérablement en fonction du statut d'occupation.") |>
   add_row(en = "Land surface temperature measures the maximum mean warm-season temperature at a specific location. It is a crucial indicator of urban heat islands and ecological balance within a region.",
-          fr = "La température au sol mesure la température moyenne maximale de la saison chaude à un endroit précis. C'est un indicateur essentiel des îlots de chaleur urbains et de l'équilibre écologique au sein d'une région.") |> 
-  
+          fr = "La température au sol mesure la température moyenne maximale de la saison chaude à un endroit précis. C'est un indicateur essentiel des îlots de chaleur urbains et de l'équilibre écologique au sein d'une région.") |>
+
   add_row(en = "<p>Understanding the age distribution of a population is crucial for policy making and resource allocation. It helps in planning for education, healthcare, and social services.",
-          fr = "<p>La compréhension de la répartition par âge d'une population est cruciale pour l'élaboration des politiques et l'allocation des ressources. Elle permet, entre autres, de planifier l'éducation, les soins de santé et les services sociaux.") |> 
-  
-  #title_text_extra 
-  add_row(en = "<p>The datasets visualized on this page come from the Canadian Census from 1996 to the present. There are a few efforts in place to better the housing landscape from the federal and municipal governments. In Canada, the National Housing Strategy aims to address housing needs and houselessness through modernization, new construction, and innovation and research. Within the City of Montreal, important housing initiatives include the Diverse Metropolis by-law and the 12,000-housing unit strategy. For more information on these initiatives visit:<ul><li><a href='https://www.cmhc-schl.gc.ca/en/nhs/', target = '_blank'>CMHC. (n.d.). National Housing Strategy</a><li><a href='https://montreal.ca/articles/metropole-mixte-les-grandes-lignes-du-reglement-7816', target = '_blank'>Ville de Montréal. (4 octobre 2021). Métropole Mixte: Les grandes lignes du règlement.</a>", 
+          fr = "<p>La compréhension de la répartition par âge d'une population est cruciale pour l'élaboration des politiques et l'allocation des ressources. Elle permet, entre autres, de planifier l'éducation, les soins de santé et les services sociaux.") |>
+  add_row(en = "<p>Housing is at the centre of our lives. Our ability to find affordable, adequate, and healthy accommodations profoundly affects our life chances.",
+          fr = paste0(
+            "<p>Le logement est au cœur de nos vies. Notre capacité à trouver ",
+            "un logement abordable, adéquat et sain affecte profondément nos chance",
+            "s dans la vie."
+          )) |>
+  add_row(en = paste0(
+    "<p>Understanding the distribution of citizenship and immigration statu",
+    "s is crucial for comprehending the diversity of the population. "
+  ),
+  fr = paste0(
+    "<p>La compréhension de la répartition des statuts de citoyenneté ",
+    "et d'immigration est essentielle pour comprendre la diversité de la p",
+    "opulation."
+  )) |>
+  add_row(en = paste0(
+    "<p>Understanding the characteristics of dwellings, such as building ty",
+    "pology, number of bedrooms, and period of construction, is essential f",
+    "or comprehending housing availability, suitability, and trends over ti",
+    "me. These characteristics provide insights into the types of homes peo",
+    "ple live in, the adequacy of space for families, and the historical de",
+    "velopment of residential areas."
+  ),
+  fr = paste0(
+    "<p>Il est essentiel de comprendre les caractéristiques des logements, te",
+    "lles que la typologie des bâtiments, le nombre de chambres et la pério",
+    "de de construction, pour comprendre la disponibilité et l'adéquation ",
+    "des logements, ainsi que les tendances au fil du temps. Ces caractéris",
+    "tiques donnent un aperçu des types de logements dans lesquels les gens",
+    " vivent, de l'adéquation de l'espace pour les familles et de l'évoluti",
+    "on historique des zones résidentielles."
+  )) |>
+  add_row(en = paste0(
+    "<p>Understanding language characteristics, including languages spoken ",
+    "at home and knowledge of official languages, helps in comprehending cu",
+    "ltural diversity and communication needs within communities. It provid",
+    "es insights into the linguistic landscape, language preferences, and t",
+    "he level of multilingualism across different regions."
+  ),
+  fr = paste0(
+    "<p>La compréhension des caractéristiques linguistiques, y compris les la",
+    "ngues parlées à la maison et la connaissance des langues officielles, ",
+    "permet d'appréhender la diversité culturelle et les besoins de communi",
+    "cation au sein des communautés. Elle donne un aperçu du paysage lingui",
+    "stique, des préférences linguistiques et du niveau de multilinguisme d",
+    "ans les différentes régions."
+  )) |>
+  add_row(en = paste0(
+    "<p>Understanding the distribution of household sizes is crucial for po",
+    "licy making and resource allocation. It helps in planning for housing,",
+    " community services, and infrastructure development."
+  ),
+  fr = paste0(
+    "<p>La compréhension de la répartition de la taille des ménages es",
+    "t cruciale pour l'élaboration des politiques et l'allocation des resso",
+    "urces. Elle permet de planifier le logement, les services communautair",
+    "es et le développement des infrastructures."
+  )) |>
+  add_row(en = paste0(
+    "<p>Understanding how education levels are distributed helps us better ",
+    "plan for effective policies, ensure equitable resource distribution, a",
+    "nd tailor community programs to meet real needs."
+  ),
+  fr = paste0(
+    "<p>La compréhension de la répartition des niveaux d'éducation nou",
+    "s aide à mieux planifier des politiques efficaces, à assurer une distr",
+    "ibution équitable des ressources et à adapter les programmes communaut",
+    "aires aux besoins réels."
+  )) |>
+  add_row(en = paste0(
+    "<p>Housing starts and completions represent the number of new resident",
+    "ial construction projects that have begun or reached completion, segme",
+    "nted by dwelling type (such as single-family homes, apartments, or tow",
+    "nhouses) and intended market (e.g., owner-occupied or rental)."
+  ),
+  fr = paste0(
+    "<p>Les mises en chantier et les achèvements de logements représentent le",
+    " nombre de nouveaux projets de construction résidentielle qui ont débu",
+    "té ou sont en cours d'achèvement, segmentés par type de logement (mais",
+    "ons unifamiliales, appartements ou maisons en rangée) et par marché vi",
+    "sé (par exemple, propriétaire-occupant ou locataire)."
+  )) |>
+
+  #title_text_extra
+  add_row(en = "<p>The datasets visualized on this page come from the Canadian Census from 1996 to the present. There are a few efforts in place to better the housing landscape from the federal and municipal governments. In Canada, the National Housing Strategy aims to address housing needs and houselessness through modernization, new construction, and innovation and research. Within the City of Montreal, important housing initiatives include the Diverse Metropolis by-law and the 12,000-housing unit strategy. For more information on these initiatives visit:<ul><li><a href='https://www.cmhc-schl.gc.ca/en/nhs/', target = '_blank'>CMHC. (n.d.). National Housing Strategy</a><li><a href='https://montreal.ca/articles/metropole-mixte-les-grandes-lignes-du-reglement-7816', target = '_blank'>Ville de Montréal. (4 octobre 2021). Métropole Mixte: Les grandes lignes du règlement.</a>",
           fr = "<p>Les ensembles de données visualisés sur cette page proviennent du recensement canadien de 1996 à aujourd'hui. Les gouvernements fédéral et municipaux ont déployé quelques efforts pour améliorer le paysage du logement. Au Canada, la stratégie nationale du logement vise à répondre aux besoins en matière de logement et à lutter contre le sans-abrisme par la modernisation, la construction de nouveaux logements, l'innovation et la recherche. Au sein de la ville de Montréal, les initiatives importantes en matière de logement comprennent le règlement Métropole mixte et la stratégie de développment de 12 000 logements. Pour plus d'informations sur ces initiatives, visitez :<ul><li><a href='https://www.cmhc-schl.gc.ca/en/nhs/', target = '_blank'>CMHC. (s.d.). Stratégie nationale sur le logement</a><li><a href='https://montreal.ca/articles/metropole-mixte-les-grandes-lignes-du-reglement-7816', target = '_blank'>Ville de Montréal. (4 octobre 2021). Métropole Mixte : Les grandes lignes du règlement.</a>") |>
-  add_row(en = "<p>The datasets visualized on this page come from Curbcut using data from the Canadian Censuses and DMTI. Our index considers street connectivity, building density, and points of interest. Active Living Potential is then calculated based on dissemination areas accessible within a 15-minute walk. The work on this page was highly influenced by the <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE index</a> developed by Prof. Nancy Ross and her team.", 
-          fr = "<p>Les ensembles de données visualisés sur cette page proviennent de Curbcut, à partir des données des recensements canadiens et de DMTI. Notre indice tient compte de la connectivité des rues, de la densité des bâtiments et des points d'intérêt. Le potentiel de vie active est ensuite calculé en fonction des aires de diffusion accessibles en moins de 15 minutes de marche. Le travail sur cette page a été fortement influencé par le <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE index</a> développé par la professeur Nancy Ross et son équipe.") |>
-  add_row(en = "<p>Curbcut has calculated travel times for walking, cycling, and driving using the Open Source Routing Machine (OSRM) and the OpenStreetMap (OSM) street network. For transit travel times, Curbcut has employed GTFS feeds and a multimodal approach, incorporating walking times derived from OSRM and the OSM street network. The amenities data has been sourced from a combination of DMTI Spatial and OpenStreetMap.", 
+  add_row(en = "<p>The datasets visualized on this page come from Curbcut using data from the Canadian Censuses and DMTI. Our index considers street connectivity, building density, and points of interest. Active Living Potential is then calculated based on dissemination blocks accessible within a 15-minute walk. The work on this page was highly influenced by the <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE index</a> developed by Prof. Nancy Ross and her team.",
+          fr = "<p>Les ensembles de données visualisés sur cette page proviennent de Curbcut, à partir des données des recensements canadiens et de DMTI. Notre indice tient compte de la connectivité des rues, de la densité des bâtiments et des points d'intérêt. Le potentiel de vie active est ensuite calculé en fonction des îlots de diffusion accessibles en moins de 15 minutes de marche. Le travail sur cette page a été fortement influencé par le <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE index</a> développé par la professeur Nancy Ross et son équipe.") |>
+  add_row(en = "<p>Curbcut has calculated travel times for walking, cycling, and driving using the Open Source Routing Machine (OSRM) and the OpenStreetMap (OSM) street network. For transit travel times, Curbcut has employed GTFS feeds and a multimodal approach, incorporating walking times derived from OSRM and the OSM street network. The amenities data has been sourced from a combination of DMTI Spatial and OpenStreetMap.",
           fr = "<p>Curbcut a calculé les temps de parcours pour la marche, le vélo et la voiture en utilisant l'Open Source Routing Machine (OSRM) et le réseau de rues OpenStreetMap (OSM). Pour les temps de trajet en transport en commun, Curbcut a utilisé les flux GTFS et une approche multimodale, en incorporant les temps de marche jusqu'aux arrêts de transport en commun. Les données sur les services proviennent d'une combinaison de DMTI Spatial et d'OpenStreetMap.") |>
-  add_row(en = "<p>The datasets visualized on this page come from Habitat. Note that the natural infrastructure included in the study that generated this data only covers approximately 25% of the Montreal region. For more information on the methods and data used for this page, visit the publication <a href = 'https://fr.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures-naturelles-dans-la-prevention-des-inondations-dans-la-communaute-metropolitaine-de-montreal/ ' target = '_blank'>“Le rôle des infrastructures naturelles dans la prévention des inondations dans la Communauté métropolitaine de Montréal”</a>.", 
+  add_row(en = "<p>The datasets visualized on this page come from Habitat. Note that the natural infrastructure included in the study that generated this data only covers approximately 25% of the Montreal region. For more information on the methods and data used for this page, visit the publication <a href = 'https://fr.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures-naturelles-dans-la-prevention-des-inondations-dans-la-communaute-metropolitaine-de-montreal/ ' target = '_blank'>“Le rôle des infrastructures naturelles dans la prévention des inondations dans la Communauté métropolitaine de Montréal”</a>.",
           fr = "<p>Les ensembles de données visualisés sur cette page proviennent d'Habitat. Il est à noter que les infrastructures naturelles incluses dans l'étude qui a généré ces données ne couvrent qu'environ 25 % de la région de Montréal. Pour plus d'information sur les méthodes et les données utilisées pour cette page, visitez la publication <a href = 'https://fr.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures-naturelles-dans-la-prevention-des-inondations-dans-la-communaute-metropolitaine-de-montreal/ ' target = '_blank'>Le rôle des infrastructures naturelles dans la prévention des inondations dans la Communauté métropolitaine de Montréal</a>.") |>
-  add_row(en = "<p>The datasets visualized on this page come from the 2016 and 2021 Canadian Censuses.", 
+  add_row(en = "<p>The datasets visualized on this page come from the 2016 and 2021 Canadian Censuses.",
           fr = "<p>Les ensembles de données visualisés sur cette page proviennent des recensements canadiens de 2016 et de 2021.") |>
-  add_row(en = "<p>Data is collected by the Service de Police de la Ville de Montréal (SPVM) and compiled by the Société d'Assurance Automobile du Québec (SAAQ), and contains information related to every road collision, including the date, location and type of parties involved (i.e. cars, bicycles or pedestrians) and injury severity. <p>For more information on road collisions and a temporal analysis of the data, please consult the <i>Road safety analysis</i> below.</p><p>References:</p><ul><li><a href = https://www.pietons.quebec/sites/default/files/documents/pietonsqc_vf_fiche_decouvrirapprochevisionzerosecuriteroutiere.pdf> Piétons Québec. (2021). Découvrir l'approche vision zéro en sécurité routière. Piétons Québec. Online:</a><li><a href='https://donnees.montreal.ca/ville-de-montreal/collisions-routieres'>Ville de Montréal. (2021). Collisions routières. Données Ouvertes Montréal.</a></ul>", 
+  add_row(en = "<p>Data is collected by the Service de Police de la Ville de Montréal (SPVM) and compiled by the Société d'Assurance Automobile du Québec (SAAQ), and contains information related to every road collision, including the date, location and type of parties involved (i.e. cars, bicycles or pedestrians) and injury severity. <p>For more information on road collisions and a temporal analysis of the data, please consult the <i>Road safety analysis</i> below.</p><p>References:</p><ul><li><a href = https://www.pietons.quebec/sites/default/files/documents/pietonsqc_vf_fiche_decouvrirapprochevisionzerosecuriteroutiere.pdf> Piétons Québec. (2021). Découvrir l'approche vision zéro en sécurité routière. Piétons Québec. Online:</a><li><a href='https://donnees.montreal.ca/ville-de-montreal/collisions-routieres'>Ville de Montréal. (2021). Collisions routières. Données Ouvertes Montréal.</a></ul>",
           fr = "<p>Les données sont recueillies par le Service de police de la Ville de Montréal (SPVM) et compilées par la Société d'assurance automobile du Québec (SAAQ). Elles contiennent des informations relatives à chaque collision routière, notamment la date, le lieu et le type de personnes impliquées (voitures, vélos ou piétons) ainsi que la gravité des blessures. <Pour plus d'information sur les collisions routières et une analyse temporelle des données, veuillez consulter l'<i>Analyse de la sécurité routière</i> ci-dessous.</p><p>Références:</p><ul><li><a href = https://www.pietons.quebec/sites/default/files/documents/pietonsqc_vf_fiche_decouvrirapprochevisionzerosecuriteroutiere.pdf> Piétons Québec. (2021). Découvrir l'approche vision zéro en sécurité routière. Piétons Québec. En ligne:</a><li><a href='https://donnees.montreal.ca/ville-de-montreal/collisions-routieres'>Ville de Montréal. (2021). Collisions routières. Données Ouvertes Montréal.</a></ul>") |>
-  add_row(en = "<p>The data in the Place Explorer is taken from other Curbcut pages with the exception of <a href = 'https://www.canuedata.ca/tmp/CANUE_METADATA_NO2LUR_A_YY.pdf'>Air pollution</a>.", 
+  add_row(en = "<p>The data in the Place Explorer is taken from other Curbcut pages with the exception of <a href = 'https://www.canuedata.ca/tmp/CANUE_METADATA_NO2LUR_A_YY.pdf'>Air pollution</a>.",
           fr = "<p>Les données de l'explorateur de lieux proviennent d'autres pages de Curbcut, à l'exception de la <a href = 'https://www.canuedata.ca/tmp/CANUE_METADATA_NO2LUR_A_YY.pdf'>Pollution de l'air</a>.") |>
-  add_row(en = "<p>These narrative case studies are written by the Curbcut team and its contributors.", 
-          fr = "<p>Ces études de cas narratives sont rédigées par l'équipe de Curbcut et ses contributeurs.") |> 
-  add_row(en = "<p>The age distribution data visualized on this page come from the Canadian Census from 1996 to the present. These datasets provide insights into demographic trends and shifts over time. Key initiatives to address age-related challenges include healthcare reforms and educational reforms.", 
-          fr = "<p>Les données sur la répartition par âge visualisées sur cette page proviennent du recensement canadien de 1996 à aujourd'hui. Ces ensembles de données donnent un aperçu des tendances et des changements démographiques au fil du temps.") |> 
+  add_row(en = "<p>These narrative case studies are written by the Curbcut team and its contributors.",
+          fr = "<p>Ces études de cas narratives sont rédigées par l'équipe de Curbcut et ses contributeurs.") |>
+  add_row(en = "<p>The age distribution data visualized on this page come from the Canadian Census from 1996 to the present. These datasets provide insights into demographic trends and shifts over time. Key initiatives to address age-related challenges include healthcare reforms and educational reforms.",
+          fr = "<p>Les données sur la répartition par âge visualisées sur cette page proviennent du recensement canadien de 1996 à aujourd'hui. Ces ensembles de données donnent un aperçu des tendances et des changements démographiques au fil du temps.") |>
+  add_row(en = paste0(
+    "<p>The datasets visualized on this page come from the Canadian Census ",
+    "from 1996 to the present. These datasets provide insights into trends ",
+    "related to immigration and citizenship, and the changing demographics ",
+    "over time."
+  ),
+  fr = paste0(
+    "<p>Les ensembles de données visualisés sur cette page proviennent du r",
+    "ecensement canadien de 1996 à aujourd'hui. Ces ensembles de données do",
+    "nnent un aperçu des tendances liées à l'immigration et à la citoyennet",
+    "é, ainsi que de cette évolution démographique au fil du temps."
+  )) |>
+  add_row(en = paste0(
+    "<p>The datasets visualized on this page come from the Canadian Census ",
+    "from 1996 to the present, allowing for an analysis of how dwelling cha",
+    "racteristics have evolved over time. Key features include the diversit",
+    "y in building types, the availability of various sizes of housing (e.g",
+    "., number of bedrooms), and the age of the building stock, which all p",
+    "lay a crucial role in meeting housing needs."
+  ),
+  fr = paste0(
+    "<p>Les ensembles de données visualisés sur cette page proviennent du rec",
+    "ensement canadien de 1996 à aujourd'hui, ce qui permet d'analyser l'év",
+    "olution des caractéristiques des logements au fil du temps. Les caract",
+    "éristiques clés comprennent la diversité des types de bâtiments, la di",
+    "sponibilité de logements de différentes tailles (par exemple, le nombr",
+    "e de chambres à coucher) et l'âge du parc immobilier, qui jouent tous ",
+    "un rôle crucial dans la satisfaction des besoins en matière de logemen",
+    "t."
+  )) |>
+  add_row(en = paste0(
+    "<p>The datasets visualized on this page come from the Canadian Census ",
+    "from 1996 to the present, allowing for an analysis of how language usa",
+    "ge has evolved over time. Key features include the prevalence of diffe",
+    "rent languages spoken at home and the knowledge of Canada's official l",
+    "anguages (English and French), as defined by Statistics Canada. The de",
+    "finitions and classifications used here are those provided by Statisti",
+    "cs Canada, which include both English and French as official languages",
+    "."
+  ),
+  fr = paste0(
+    "<p>Les ensembles de données visualisés sur cette page proviennent du rec",
+    "ensement canadien de 1996 à aujourd'hui, ce qui permet d'analyser l'év",
+    "olution de l'utilisation des langues au fil du temps. Les principales ",
+    "caractéristiques sont la prévalence des différentes langues parlées à ",
+    "la maison et la connaissance des langues officielles du Canada (anglai",
+    "s et français), telles que définies par Statistique Canada. Les défini",
+    "tions et classifications utilisées ici sont celles fournies par Statis",
+    "tique Canada, qui considère le français et l'anglais comme des langues",
+    " officielles."
+  )) |>
+  add_row(en = paste0(
+    "<p>The household size distribution data visualized on this page come f",
+    "rom the Canadian Census from 1996 to the present. These datasets provi",
+    "de insights into demographic trends and shifts over time."
+  ),
+  fr = paste0(
+    "<o>Les données sur la distribution de la taille des ménages visuali",
+    "sées sur cette page proviennent du recensement canadien de 1996 à aujo",
+    "urd'hui. Ces ensembles de données donnent un aperçu des tendances et d",
+    "es changements démographiques au fil du temps."
+  )) |>
+  add_row(en = paste0(
+    "<p>The education data showcased here provide insights into trends over",
+    " time. By examining data from the Canadian Census spanning 1996 to the",
+    " present, we can see how educational attainment has shifted and evolve",
+    "d across different regions and communities."
+  ),
+  fr = paste0(
+    "<p>Les données sur l'éducation présentées ici donnent un aperçu des",
+    " tendances au fil du temps. En examinant les données du recensement ca",
+    "nadien de 1996 à aujourd'hui, nous pouvons voir comment le niveau d'éd",
+    "ucation a changé et évolué."
+  )) |>
+  add_row(en = paste0(
+    "<p> Monitoring these figures provides valuable insight into the pace o",
+    "f housing supply growth and market trends. A consistent increase in co",
+    "mpletions is crucial for addressing housing shortages and meeting dema",
+    "nd in diverse housing markets."
+  ),
+  fr = paste0(
+    "<p>Le suivi de ces chiffres fournit des informations précieuses sur le r",
+    "ythme de croissance de l'offre de logements et sur les tendances du ma",
+    "rché. Une augmentation constante du nombre d'achèvements est essentiel",
+    "le pour remédier aux pénuries de logements et répondre à la demande diverse su",
+    "r le marché du logement."
+  )) |>
 
   #dataset_info
-  add_row(en = "<p>This page presents <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>housing data from the 1996 to the latest, Canadian Censuses</a></p>", 
+  add_row(en = "<p>This page presents <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>housing data from the 1996 to the latest, Canadian Censuses</a></p>",
           fr = "<p>Cette page présente <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>les indicateurs de logement des recensements canadiens de 1996 à aujourd'hui.</a>") |>
-  add_row(en = "<p>This module presents <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>housing data from the 1996 to the latest, Canadian Censuses</a></p>", 
+  add_row(en = "<p>This module presents <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>housing data from the 1996 to the latest, Canadian Censuses</a></p>",
           fr = "<p>Cette page présente <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>les indicateurs de logement d'hébergement des recensements canadiens de 1996 à aujourd'hui.</a>") |>
-  add_row(en = "<p>The datasets visualized on this page come from the CMHC and the 2021 Canadian Census.", 
+  add_row(en = "<p>The datasets visualized on this page come from the CMHC and the 2021 Canadian Census.",
           fr = "<p>Les ensembles de données visualisés sur cette page proviennent de la SCHL et du recensement canadien de 2021.") |>
-  add_row(en = "<p>The data visualized on this page come from Curbcut. Active Living Potential (ALP) is an index created using datasets from DMTI, Statistics Canada road network files and the Canadian Census. The index considers three variables—street connectivity, building density, and points of interest—for which high values collectively describe areas that strongly support active living. The percentile of each variable is calculated at the dissemination area scale, based on dissemination areas accessible within a 15-minute walk from a dissemination area centroid, and the sum of these percentiles is the ALP index value. The dataset is calculated from 2001 through 2021 in five-year intervals (corresponding to Census years). Our ALP index was highly influenced by the <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE index developed by Ross et al. (2018)</a>. Our index differs by calculating a buffer using a 15-minute walk on the street network using our internal travel time matrix dataset instead of a 1km buffer around the centroid of dissemination areas. Our index also differs by using a sum of percentiles rather than a sum of z-scores. This method reduces the influence of extreme outliers, especially in the case of points of interest which have a very large variance. Thus, this percentile approach offers a balanced and nuanced understanding of an area's walkability.", 
-          fr = "<p>Les données visualisées sur cette page proviennent de Curbcut. Le potentiel de vie active (PVA) est un indice créé à partir d'ensembles de données provenant de DMTI, de fichiers du réseau routier de Statistique Canada et du recensement canadien. L'indice prend en compte trois variables - la connectivité des rues, la densité des bâtiments et les points d'intérêt - pour lesquelles des valeurs élevées décrivent collectivement des zones qui favorisent fortement la vie active. Le centile de chaque variable est calculé à l'échelle de l'aire de diffusion, sur la base des aires de diffusion accessibles à moins de 15 minutes de marche du centroïde d'une aire de diffusion, et la somme de ces centiles constitue la valeur de l'indice ALP. L'ensemble des données est calculé de 2001 à 2021 par intervalles de cinq ans (correspondant aux années de recensement). Notre indice PVA a été fortement influencé par l'indice <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE développé par Ross et al. (2018)</a>. Notre indice diffère en calculant un tampon à l'aide d'une marche de 15 minutes sur le réseau routier/piétonnier en utilisant notre ensemble de données interne, une matrice de temps de déplacement, au lieu d'un tampon de 1 km autour du centroïde des aires de diffusion. Notre indice diffère également en utilisant une somme de percentiles plutôt qu'une somme de cotes Z. Cette méthode réduit l'influence des valeurs aberrantes extrêmes, en particulier dans le cas des points d'intérêt qui ont une très grande variance. Ainsi, cette approche par percentile offre une compréhension équilibrée et nuancée de la marchabilité d'une zone.") |>
-  add_row(en = "<p>Curbcut has developed a comprehensive methodology for calculating travel times and determining accessibility to various amenities. Travel times for walking, cycling, and driving have been calculated using the Open Source Routing Machine (OSRM) and the OpenStreetMap (OSM) street network. Transit travel times are calculated using GTFS feeds and a multimodal approach that incorporates walking times from OSRM and the OSM street network.<p>To analyze the accessibility to amenities, Curbcut utilizes a two-step process. First, the travel time distances are calculated using a custom function which computes the shortest travel times between Dissemination Area (DA) centroids and their closest neighbors within specified distances. Next, the number of accessible amenities within each DA is determined by joining amenity points with the DA boundaries and counting the number of intersections.<p>The amenities data is sourced from a combination of DMTI Spatial and OpenStreetMap, ensuring an accurate representation of various types of amenities in the area. This methodology allows for a detailed analysis of travel times and accessibility to amenities, providing valuable insights for urban planning and development purposes.", 
+  add_row(en = "<p>The data visualized on this page come from Curbcut. Active Living Potential (ALP) is an index created using datasets from DMTI, Statistics Canada road network files and the Canadian Census. The index considers three variables—street connectivity, building density, and points of interest—for which high values collectively describe areas that strongly support active living. The percentile of each variable is calculated at the dissemination block scale, based on dissemination blocks accessible within a 15-minute walk from a dissemination block centroid, and the sum of these percentiles is the ALP index value. The dataset is calculated from 2001 through 2021 in five-year intervals (corresponding to Census years). Our ALP index was highly influenced by the <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE index developed by Ross et al. (2018)</a>. Our index differs by calculating a buffer using a 15-minute walk on the street network using our internal travel time matrix dataset instead of a 1km buffer around the centroid of dissemination blocks. Our index also differs by using a sum of percentiles rather than a sum of z-scores. This method reduces the influence of extreme outliers, especially in the case of points of interest which have a very large variance. Thus, this percentile approach offers a balanced and nuanced understanding of an area's walkability.",
+          fr = "<p>Les données visualisées sur cette page proviennent de Curbcut. Le potentiel de vie active (PVA) est un indice créé à partir d'ensembles de données provenant de DMTI, de fichiers du réseau routier de Statistique Canada et du recensement canadien. L'indice prend en compte trois variables - la connectivité des rues, la densité des bâtiments et les points d'intérêt - pour lesquelles des valeurs élevées décrivent collectivement des zones qui favorisent fortement la vie active. Le centile de chaque variable est calculé à l'échelle de l'îlot de diffusion, sur la base des îlots de diffusion accessibles à moins de 15 minutes de marche du centroïde d'une îlot de diffusion, et la somme de ces centiles constitue la valeur de l'indice ALP. L'ensemble des données est calculé de 2001 à 2021 par intervalles de cinq ans (correspondant aux années de recensement). Notre indice PVA a été fortement influencé par l'indice <a href = 'http://canue.ca/wp-content/uploads/2018/03/CanALE_UserGuide.pdf', target = '_blank'>CanALE développé par Ross et al. (2018)</a>. Notre indice diffère en calculant un tampon à l'aide d'une marche de 15 minutes sur le réseau routier/piétonnier en utilisant notre ensemble de données interne, une matrice de temps de déplacement, au lieu d'un tampon de 1 km autour du centroïde des îlots de diffusion. Notre indice diffère également en utilisant une somme de percentiles plutôt qu'une somme de cotes Z. Cette méthode réduit l'influence des valeurs aberrantes extrêmes, en particulier dans le cas des points d'intérêt qui ont une très grande variance. Ainsi, cette approche par percentile offre une compréhension équilibrée et nuancée de la marchabilité d'une zone.") |>
+  add_row(en = "<p>Curbcut has developed a comprehensive methodology for calculating travel times and determining accessibility to various amenities. Travel times for walking, cycling, and driving have been calculated using the Open Source Routing Machine (OSRM) and the OpenStreetMap (OSM) street network. Transit travel times are calculated using GTFS feeds and a multimodal approach that incorporates walking times from OSRM and the OSM street network.<p>To analyze the accessibility to amenities, Curbcut utilizes a two-step process. First, the travel time distances are calculated using a custom function which computes the shortest travel times between Dissemination Area (DA) centroids and their closest neighbors within specified distances. Next, the number of accessible amenities within each DA is determined by joining amenity points with the DA boundaries and counting the number of intersections.<p>The amenities data is sourced from a combination of DMTI Spatial and OpenStreetMap, ensuring an accurate representation of various types of amenities in the area. This methodology allows for a detailed analysis of travel times and accessibility to amenities, providing valuable insights for urban planning and development purposes.",
           fr = "<p>Curbcut a développé une méthodologie complète pour calculer les temps de trajet et déterminer l'accessibilité à diverses services et commodités. Les temps de parcours pour la marche, le vélo et la voiture ont été calculés à l'aide de l'Open Source Routing Machine (OSRM) et du réseau de rues OpenStreetMap (OSM). Les temps de trajet en transport en commun sont calculés à l'aide des flux GTFS et d'une approche multimodale qui incorpore les temps de marche de l'OSRM et du réseau de rues OSM.<p>Pour analyser l'accessibilité aux commodités, Curbcut utilise un processus en deux étapes. Tout d'abord, les distances de temps de trajet sont calculées à l'aide d'une fonction personnalisée qui calcule les temps de trajet les plus courts entre les centroïdes de l'aire de diffusion (AD) et leurs voisins les plus proches dans des distances spécifiées. Ensuite, le nombre d'équipements accessibles dans chaque aire de diffusion est déterminé en joignant les points d'équipements aux limites de l'aire de diffusion et en comptant le nombre d'intersections.<p>Les données sur les services et commodités proviennent d'une combinaison de DMTI Spatial et d'OpenStreetMap, ce qui garantit une représentation précise des différents types d'équipements dans la région. Cette méthodologie permet une analyse détaillée des temps de parcours et de l'accessibilité aux équipements, fournissant des informations précieuses pour la planification urbaine et le développement.") |>
-  add_row(en = "<p><a href = 'https://donnees.montreal.ca/ville-de-montreal/vulnerabilite-changements-climatiques'>The data presented on this page are cartographic representations of the vulnerability analysis</a> developed as part of the Climate change adaptation plan for the agglomeration of Montréal 2015-2020 for the following climate hazards: heavy rainfall, heat waves, destructive storms, droughts and floods.</p>", 
+  add_row(en = "<p><a href = 'https://donnees.montreal.ca/ville-de-montreal/vulnerabilite-changements-climatiques'>The data presented on this page are cartographic representations of the vulnerability analysis</a> developed as part of the Climate change adaptation plan for the agglomeration of Montréal 2015-2020 for the following climate hazards: heavy rainfall, heat waves, destructive storms, droughts and floods.</p>",
           fr = "<p><a href = 'https://donnees.montreal.ca/ville-de-montreal/vulnerabilite-changements-climatiques'>Les données présentées sur cette page sont des représentations cartographiques de l'analyse de vulnérabilité</a> développée dans le cadre du Plan d'adaptation aux changements climatiques de l'agglomération de Montréal 2015-2020 pour les aléas climatiques suivants : pluies abondantes, vagues de chaleur, tempêtes destructrices, sécheresses et inondations.</p>") |>
-  add_row(en = "<p>Data made available by the firm Habitat. For more information on the methods and data used for this page, see <a href = 'https://fr.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures-natrelles-dans-la-prevention-des-inondations-dans-la-communaute-metropolitaine-de-montreal/'>Maure et al., 2018, Le rôle des infrastructures naturelles dans la prévention des inondations dans la Communauté métropolitaine de Montréal, Fondation David Suzuki.</a></p>", 
+  add_row(en = "<p>Data made available by the firm Habitat. For more information on the methods and data used for this page, see <a href = 'https://fr.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures-natrelles-dans-la-prevention-des-inondations-dans-la-communaute-metropolitaine-de-montreal/'>Maure et al., 2018, Le rôle des infrastructures naturelles dans la prévention des inondations dans la Communauté métropolitaine de Montréal, Fondation David Suzuki.</a></p>",
           fr = "<p>Données mises à disposition par l'entreprise Habitat. Pour plus d'informations sur les méthodes et les données utilisées pour cette page, voir <a href = 'https://fr.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures-natrelles-dans-la-prevention-des-inondations-dans-la-communaute-metropolitaine-de-montreal/'>Maure et al., 2018, Le rôle des infrastructures naturelles dans la prévention des inondations dans la Communauté métropolitaine de Montréal, Fondation David Suzuki.</a></p>") |>
-  add_row(en = "<p>The census data (2016-2021) on this page comes from custom tabulations from Statistics Canada ordered by Centraide of Greater Montreal</p>", 
-          fr = "<p>Les données du recensement (2016-2021) présentées sur cette page proviennent de tabulations personnalisées de Statistique Canada commandées par Centraide du Grand Montréal.") |> 
+  add_row(en = "<p>The census data (2016-2021) on this page comes from custom tabulations from Statistics Canada ordered by Centraide of Greater Montreal</p>",
+          fr = "<p>Les données du recensement (2016-2021) présentées sur cette page proviennent de tabulations personnalisées de Statistique Canada commandées par Centraide du Grand Montréal.") |>
   add_row(en = "<p>This dataset, provided by the Canadian Urban Environmental Health Research Consortium, includes annual estimates of LST developed using a public algorithm in Google Earth Engine. The data, derived from LandSat 8 imagery, represents a 3 years annual maximum mean warm-season land surface temperature.</p>",
-          fr = "<p>Ce jeu de données, fourni par le Consortium canadien de recherche en santé environnementale urbaine, comprend des estimations annuelles de la température de surface terrestre élaborées à l'aide d'un algorithme public dans Google Earth Engine. Les données, dérivées de l'imagerie LandSat 8, représentent une moyenne annuelle maximale de 3 ans de la température de surface des terres en saison chaude.</p>") |> 
+          fr = "<p>Ce jeu de données, fourni par le Consortium canadien de recherche en santé environnementale urbaine, comprend des estimations annuelles de la température de surface terrestre élaborées à l'aide d'un algorithme public dans Google Earth Engine. Les données, dérivées de l'imagerie LandSat 8, représentent une moyenne annuelle maximale de 3 ans de la température de surface des terres en saison chaude.</p>") |>
   add_row(en = "<p>We built an extensive dataset of green alleys across Montreal, which were categorized as either green or community alleys. Our data was carefully collected and validated, using various resources both public and private. Here are our key data sources:</p><ul><li><a href=’https://donnees.montreal.ca/dataset/ruelles-vertes’ target=’_blank’>Official Montreal Open Data Portal - Green Alleys Dataset</a></li><li><a href=’https://www.google.com/maps/d/viewer?mid=143hjP-d1kJ9dlifQF_2jtys85B4&ll=45.52200058770156%2C-73.47754611620758&z=11’ target=’_blank’>Google Maps Green Alleys - 2022 Version</a></li><li>Specific Maps Sent by the borough of Mercier-Hochelaga-Maisonneuve (These are not publicly accessible) </li><li><a href=’https://docs.google.com/spreadsheets/d/1gbNQnEErVOQdfN95Fg0uPHJitKC-JAEZ/edit#gid=486678456’ target=’_blank’>Montreal-Nord Green Alleys List</a></li><li> Montréal-Nord Green Alleys Map sent by the borough</li><li> NDG Green Alleys Map sent by the borough</a></li></ul><p>In addition to the above-mentioned sources, our team also incorporated green alleys that we discovered during our site visits. This combination of digital data and on-ground exploration allows us to create a comprehensive and authentic catalogue of Montreal's green alleys. </p>",
-          fr = "Nous avons construit un vaste ensemble de données sur les ruelles vertes à travers Montréal, qui ont été catégorisées comme ruelles vertes ou ruelles communautaires. Nos données ont été soigneusement collectées et validées en utilisant diverses ressources, à la fois publiques et privées. Voici nos principales sources de données :</p><ul><li><a href='https://donnees.montreal.ca/dataset/ruelles-vertes' target='_blank'>Portail officiel de données ouvertes de Montréal - Ensemble de données sur les ruelles vertes</a></li><li><a href='https://www.google.com/maps/d/viewer?mid=143hjP-d1kJ9dlifQF_2jtys85B4&ll=45.52200058770156%2C-73.47754611620758&z=11' target='_blank'>Google Maps des ruelles vertes - Version 2022</a></li><li>Cartes spécifiques envoyées par l'arrondissement de Mercier-Hochelaga-Maisonneuve (Ces données ne sont pas accessibles au public)</li><li><a href='https://docs.google.com/spreadsheets/d/1gbNQnEErVOQdfN95Fg0uPHJitKC-JAEZ/edit#gid=486678456' target='_blank'>Liste des ruelles vertes de Montréal-Nord</a></li><li>Carte des ruelles vertes de Montréal-Nord envoyée par l'arrondissement</li><li>Carte des ruelles vertes de NDG envoyée par l'arrondissement</li></ul><p>En plus des sources mentionnées ci-dessus, notre équipe a également intégré des ruelles vertes que nous avons découvertes lors de nos visites sur site. Cette combinaison de données numériques et d'exploration sur le terrain nous permet de créer un catalogue complet et authentique des ruelles vertes de Montréal.</p>") |> 
+          fr = "Nous avons construit un vaste ensemble de données sur les ruelles vertes à travers Montréal, qui ont été catégorisées comme ruelles vertes ou ruelles communautaires. Nos données ont été soigneusement collectées et validées en utilisant diverses ressources, à la fois publiques et privées. Voici nos principales sources de données :</p><ul><li><a href='https://donnees.montreal.ca/dataset/ruelles-vertes' target='_blank'>Portail officiel de données ouvertes de Montréal - Ensemble de données sur les ruelles vertes</a></li><li><a href='https://www.google.com/maps/d/viewer?mid=143hjP-d1kJ9dlifQF_2jtys85B4&ll=45.52200058770156%2C-73.47754611620758&z=11' target='_blank'>Google Maps des ruelles vertes - Version 2022</a></li><li>Cartes spécifiques envoyées par l'arrondissement de Mercier-Hochelaga-Maisonneuve (Ces données ne sont pas accessibles au public)</li><li><a href='https://docs.google.com/spreadsheets/d/1gbNQnEErVOQdfN95Fg0uPHJitKC-JAEZ/edit#gid=486678456' target='_blank'>Liste des ruelles vertes de Montréal-Nord</a></li><li>Carte des ruelles vertes de Montréal-Nord envoyée par l'arrondissement</li><li>Carte des ruelles vertes de NDG envoyée par l'arrondissement</li></ul><p>En plus des sources mentionnées ci-dessus, notre équipe a également intégré des ruelles vertes que nous avons découvertes lors de nos visites sur site. Cette combinaison de données numériques et d'exploration sur le terrain nous permet de créer un catalogue complet et authentique des ruelles vertes de Montréal.</p>") |>
   add_row(en = "<p>This module presents <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>age distribution data from the 1996 to the latest Canadian Censuses</a></p>",
-          fr = "<p>Cette page présente <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>les données de la répartition des âges de 1996 au recensement canadien le plus récent.</a></p>") |> 
-  
+          fr = "<p>Cette page présente <a href = 'https://www.statcan.gc.ca/en/census/census-engagement/about'>les données de la répartition des âges de 1996 au recensement canadien le plus récent.</a></p>") |>
+
+  add_row(en = paste0(
+    "<p>This page presents <a href='https://www.statcan.gc.ca/en/census/cen",
+    "sus-engagement/about'>data related to citizenship and immigration stat",
+    "us from the 1996 to the latest Canadian Censuses</a></p>"
+  ),
+  fr = paste0(
+    "<p>Cette page présente <a href='https://www.statcan.gc.ca/en/cens",
+    "us/census-engagement/about'>les données relatives à la citoyenneté et ",
+    "aux statuts d'immigrations du recensement canadien de 1996 au plus récent</",
+    "a>.</p>"
+  )) |>
+  add_row(en = paste0(
+    "<p>This page presents <a href='https://www.statcan.gc.ca/en/census/cen",
+    "sus-engagement/about'>data related to dwelling characteristics from th",
+    "e 1996 to the latest Canadian Censuses</a>. The variables included all",
+    "ow for detailed insights into building typology, dwelling sizes, and c",
+    "onstruction periods.</p>"
+  ),
+  fr = paste0(
+    "<p>Cette page présente des <a href='https://www.statcan.gc.ca/en/",
+    "census/census-engagement/about'>données relatives aux caractéristiques",
+    " des logements tirées des recensements canadiens de 1996 à aujourd'hui",
+    "</a>. Les variables incluses permettent d'obtenir des informations dét",
+    "aillées sur la typologie des bâtiments, la taille des logements et les",
+    " périodes de construction."
+  )) |>
+  add_row(en = paste0(
+    "<p>This page presents <a href='https://www.statcan.gc.ca/en/census/cen",
+    "sus-engagement/about'>data related to languages spoken at home and kno",
+    "wledge of official languages from the 1996 to the latest Canadian Cens",
+    "uses</a>. The variables included provide detailed insights into lingui",
+    "stic diversity and multilingual proficiency in Canada, according to th",
+    "e definitions used by Statistics Canada.</p>"
+  ),
+  fr = paste0(
+    "<p>Cette page présente des <a href='https://www.statcan.gc.ca/en/",
+    "census/census-engagement/about'>données relatives aux langues parlées ",
+    "à la maison et à la connaissance des langues officielles tirées des re",
+    "censements canadiens de 1996 à aujourd'hui</a>. Les variables incluses",
+    " donnent un aperçu détaillé de la diversité linguistique et de la comp",
+    "étence multilingue, selon les définitions utilisées par Stat",
+    "istique Canada."
+  )) |>
+  add_row(en = paste0(
+    "<p>This module presents <a href = 'https://www.statcan.gc.ca/en/census",
+    "/census-engagement/about'>household size distribution data from the 19",
+    "96 to the latest Canadian Censuses</a></p>"
+  ),
+  fr = paste0(
+    "<p>Cette page présente <a href = 'https://www.statcan.gc.ca/en/cen",
+    "sus/census-engagement/about'>les données sur la distribution de la tai",
+    "lle des ménages tirées des recensements canadiens de 1996 à aujourd'hu",
+    "i</a>"
+  )) |>
+  add_row(en = paste0(
+    "<p>This module presents <a href = 'https://www.statcan.gc.ca/en/census",
+    "/census-engagement/about'>education distribution data from the 1996 to",
+    " the latest Canadian Censuses</a></p>"
+  ),
+  fr = paste0(
+    "<p>Cette page présente <a href = 'https://www.statcan.gc.ca/en/cen",
+    "sus/census-engagement/about'>les données sur la répartition des niveaux d'éduca",
+    "tion tirées des recensements canadiens de 1996 à aujourd'hui</a></p> <",
+    "p>."
+  )) |>
+  add_row(en = paste0(
+    "<p>The datasets visualized on this page come from CMHC."
+  ),
+  fr = paste0(
+    "<p>Les ensembles de données visualisés sur cette page proviennent de l",
+    "a SCHL."
+  )) |>
+
+
   # CANBICS
   add_row(en = paste0(
     "Can-BICS, or Canadian Bikeway Comfort and Safety, is a classification ",
@@ -214,130 +487,142 @@ translation_pages <-
     "Can-BICS, ou Canadian Bikeway Comfort and Safety, est un système de cl",
     "assification permettant d'évaluer les infrastructures cyclables au Can",
     "ada en fonction de la sécurité et du confort de l'utilisateur."
-  )) |> 
+  )) |>
   add_row(en = "<p><a target = '_blank' href = 'https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-40-no-9-2020/canbics-classification-system-naming-convention-cycling-infrastructure.html'>The Canadian Bikeway Comfort and Safety (Can-BICS) Classification System</a> dataset is a geographic-based set of measures characterizing the cycling infrastructure of Canadian communities. The data is initially provided at the dissemination area level.</p>",
-          fr = "<p><a target = '_blank' href = 'https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-40-no-9-2020/canbics-classification-system-naming-convention-cycling-infrastructure.html'>Le système de classification du confort et de la sécurité des pistes cyclables au Canada (Can-BICS)</a> est un ensemble de mesures géographiques caractérisant l'infrastructure cyclable des collectivités canadiennes. Les données sont initialement fournies au niveau de l'aire de diffusion.") |> 
-  
+          fr = "<p><a target = '_blank' href = 'https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-40-no-9-2020/canbics-classification-system-naming-convention-cycling-infrastructure.html'>Le système de classification du confort et de la sécurité des pistes cyclables au Canada (Can-BICS)</a> est un ensemble de mesures géographiques caractérisant l'infrastructure cyclable des collectivités canadiennes. Les données sont initialement fournies au niveau de l'aire de diffusion.") |>
+
   # NDVI
   add_row(en = paste0(
     "<p>The Normalized Difference Vegetation Index (NDVI) measures the aver",
     "age amount of vegetation present in an area during the growing season.",
     " It is used for environmental conservation, urban planning, and climat",
     "e change mitigation."
-  ), 
+  ),
   fr = paste0(
     "L'indice de végétation par différence normalisée (NDVI) mesure la quan",
     "tité moyenne de végétation présente dans une zone pendant la saison de",
     " culture. Il est utilisé pour la conservation de l'environnement, la p",
     "lanification urbaine et l'atténuation du changement climatique."
-  )) |> 
+  )) |>
   add_row(en = paste0(
-    "<p>The NDVI data on this page is derived from the HLSS30.v2.0 and HLSL", 
-    "30.v2.0 satellites, spanning from 2013 to the present. The process inc", 
-    "ludes the following detailed steps:</p><ul><li><strong>Data Retrieval:", 
-    "</strong> Specific NDVI bands are extracted based on the satellite col", 
-    "lection. These bands are used to analyze the vegetation intensity and ", 
-    "are organized into a data frame.</li><li><strong>Raster Stacking:</str", 
-    "ong> Three bands (Red, Near-infrared (NIR), and Fmask) are extracted, cropped, and mas", 
-    "ked according to the area of interest. These bands are essential for a", 
-    "nalyzing vegetation patterns and filtering out cloud contamination.</l", 
-    "i><li><strong>NDVI Calculation:</strong> NDVI is computed using the fo", 
-    "rmula (NIR-Red)/(NIR+Red), quantifying the vegetation's health. This i", 
-    "ndex measures the difference between near-infrared (which vegetation s", 
-    "trongly reflects) and red light (which vegetation absorbs).</li><li><s", 
-    "trong>Quality Filtering with Fmask:</strong> The Fmask (Function of Ma", 
-    "sk) band is utilized to filter out poor quality pixels. Fmask is an al", 
-    "gorithm that identifies and masks unwanted features like clouds, cloud", 
-    " shadows, water, or snow/ice. In the HLS data, values of 0 and 64 in t", 
-    "he Fmask layer indicate clean and useful pixels, ensuring that the res", 
-    "ulting NDVI is free from these artifacts. This filtering is vital for ", 
-    "obtaining a true state of the vegetation and underlying surface.</li><", 
-    "li><strong>Resampling:</strong> All NDVI rasters are resampled to a sp", 
-    "ecific extent to align perfectly, allowing for accurate aggregation.</", 
-    "li></ul><p>This process, with its meticulous handling of NDVI bands an", 
-    "d quality filtering using Fmask, provides a scientifically robust view", 
-    " of vegetation trends, essential for urban sustainability studies and ", 
-    "environmental justice analyses.</p>"), 
+    "<p>The NDVI data on this page is derived from the HLSS30.v2.0 and HLSL",
+    "30.v2.0 satellites, spanning from 2013 to the present. The process inc",
+    "ludes the following detailed steps:</p><ul><li><strong>Data Retrieval:",
+    "</strong> Specific NDVI bands are extracted based on the satellite col",
+    "lection. These bands are used to analyze the vegetation intensity and ",
+    "are organized into a data frame.</li><li><strong>Raster Stacking:</str",
+    "ong> Three bands (Red, Near-infrared (NIR), and Fmask) are extracted, cropped, and mas",
+    "ked according to the area of interest. These bands are essential for a",
+    "nalyzing vegetation patterns and filtering out cloud contamination.</l",
+    "i><li><strong>NDVI Calculation:</strong> NDVI is computed using the fo",
+    "rmula (NIR-Red)/(NIR+Red), quantifying the vegetation's health. This i",
+    "ndex measures the difference between near-infrared (which vegetation s",
+    "trongly reflects) and red light (which vegetation absorbs).</li><li><s",
+    "trong>Quality Filtering with Fmask:</strong> The Fmask (Function of Ma",
+    "sk) band is utilized to filter out poor quality pixels. Fmask is an al",
+    "gorithm that identifies and masks unwanted features like clouds, cloud",
+    " shadows, water, or snow/ice. In the HLS data, values of 0 and 64 in t",
+    "he Fmask layer indicate clean and useful pixels, ensuring that the res",
+    "ulting NDVI is free from these artifacts. This filtering is vital for ",
+    "obtaining a true state of the vegetation and underlying surface.</li><",
+    "li><strong>Resampling:</strong> All NDVI rasters are resampled to a sp",
+    "ecific extent to align perfectly, allowing for accurate aggregation.</",
+    "li></ul><p>This process, with its meticulous handling of NDVI bands an",
+    "d quality filtering using Fmask, provides a scientifically robust view",
+    " of vegetation trends, essential for urban sustainability studies and ",
+    "environmental justice analyses.</p>"),
     fr = paste0(
-      "<p>Les données NDVI présentées sur cette page sont dérivées des s", 
-      "atellites HLSS30.v2.0 et HLSL30.v2.0, couvrant une période allant de 2", 
-      "013 à aujourd'hui. Le processus comprend les étapes détaillées suivant", 
-      "es:</p><ul><li><strong>Extraction de données:</strong> Des bandes NDVI spécifi", 
-      "ques sont extraites sur la base de la collecte satellitaire. Ces bande", 
-      "s sont utilisées pour analyser l'intensité de la végétation et sont or", 
-      "ganisées.</li><li><strong>Empilement des bandes", 
-      ":</strong> Trois bandes (Rouge, proche infrarouge (NIR), et Fmask) sont extraites, recadr", 
-      "ées et masquées en fonction de la zone d'intérêt. Ces bandes sont esse", 
-      "ntielles pour analyser les modèles de végétation et filtrer la contami", 
-      "nation par les nuages.</li><li><strong>Calcul du NDVI:</strong> Le NDV", 
-      "I est calculé à l'aide de la formule (NIR-Rouge)/(NIR+Rouge), qui quan", 
-      "tifie l'état de santé de la végétation. Cet indice mesure la différenc", 
-      "e entre le proche infrarouge (que la végétation reflète fortement) et ", 
-      "la lumière rouge (que la végétation absorbe).</li><li><strong>Filtrage", 
-      " de qualité avec Fmask:</strong> La bande Fmask (Function of Mask) est", 
-      " utilisée pour filtrer les pixels de mauvaise qualité. Fmask est un al", 
-      "gorithme qui identifie et masque les caractéristiques indésirables tel", 
-      "les que les nuages, les ombres des nuages, l'eau ou la neige/glace. Da", 
-      "ns les données HLS, les valeurs de 0 et 64 dans la couche Fmask indiqu", 
-      "ent des pixels propres et utiles, ce qui garantit que le NDVI résultan", 
-      "t est exempt de ces artefacts. Ce filtrage est essentiel pour obtenir ", 
-      "un état réel de la végétation et de la surface sous-jacente.</li><li><", 
-      "strong>Réséchantillonnage:</strong> Tous les images matricielles NDVI sont rééchan", 
-      "tillonnés dans une certaine mesure pour s'aligner parfaitement, ce qui", 
-      " permet une agrégation précise.</li></ul><p>Ce processus, avec son tra", 
-      "itement méticuleux des bandes NDVI et son filtrage de qualité à l'aide", 
-      " de Fmask, fournit une vue scientifiquement robuste des tendances de l", 
-      "a végétation, essentielle pour les études de durabilité urbaine et les", 
-      " analyses de la justice environnementale.</p>")) |> 
-  
+      "<p>Les données NDVI présentées sur cette page sont dérivées des s",
+      "atellites HLSS30.v2.0 et HLSL30.v2.0, couvrant une période allant de 2",
+      "013 à aujourd'hui. Le processus comprend les étapes détaillées suivant",
+      "es:</p><ul><li><strong>Extraction de données:</strong> Des bandes NDVI spécifi",
+      "ques sont extraites sur la base de la collecte satellitaire. Ces bande",
+      "s sont utilisées pour analyser l'intensité de la végétation et sont or",
+      "ganisées.</li><li><strong>Empilement des bandes",
+      ":</strong> Trois bandes (Rouge, proche infrarouge (NIR), et Fmask) sont extraites, recadr",
+      "ées et masquées en fonction de la zone d'intérêt. Ces bandes sont esse",
+      "ntielles pour analyser les modèles de végétation et filtrer la contami",
+      "nation par les nuages.</li><li><strong>Calcul du NDVI:</strong> Le NDV",
+      "I est calculé à l'aide de la formule (NIR-Rouge)/(NIR+Rouge), qui quan",
+      "tifie l'état de santé de la végétation. Cet indice mesure la différenc",
+      "e entre le proche infrarouge (que la végétation reflète fortement) et ",
+      "la lumière rouge (que la végétation absorbe).</li><li><strong>Filtrage",
+      " de qualité avec Fmask:</strong> La bande Fmask (Function of Mask) est",
+      " utilisée pour filtrer les pixels de mauvaise qualité. Fmask est un al",
+      "gorithme qui identifie et masque les caractéristiques indésirables tel",
+      "les que les nuages, les ombres des nuages, l'eau ou la neige/glace. Da",
+      "ns les données HLS, les valeurs de 0 et 64 dans la couche Fmask indiqu",
+      "ent des pixels propres et utiles, ce qui garantit que le NDVI résultan",
+      "t est exempt de ces artefacts. Ce filtrage est essentiel pour obtenir ",
+      "un état réel de la végétation et de la surface sous-jacente.</li><li><",
+      "strong>Réséchantillonnage:</strong> Tous les images matricielles NDVI sont rééchan",
+      "tillonnés dans une certaine mesure pour s'aligner parfaitement, ce qui",
+      " permet une agrégation précise.</li></ul><p>Ce processus, avec son tra",
+      "itement méticuleux des bandes NDVI et son filtrage de qualité à l'aide",
+      " de Fmask, fournit une vue scientifiquement robuste des tendances de l",
+      "a végétation, essentielle pour les études de durabilité urbaine et les",
+      " analyses de la justice environnementale.</p>")) |>
+
   # Main dropdown titles
   add_row(en = "Vacancy rate distribution",
-          fr = "Distribution des taux d'inoccupation") |> 
+          fr = "Distribution des taux d'inoccupation") |>
   add_row(en = "Climate vulnerability indicator",
-          fr = "Vulnérabilité climatique") |> 
+          fr = "Vulnérabilité climatique") |>
   add_row(en = "Data representation",
-          fr = "Représentation de données") |> 
+          fr = "Représentation de données") |>
   add_row(en = "Car crash",
-          fr = "Collision de voiture") |> 
+          fr = "Collision de voiture") |>
   add_row(en = "Crash type",
-          fr = "Type de collision") |> 
-  
-  
+          fr = "Type de collision") |>
+
+
   # ID
-  add_row(en = "housing", 
-          fr = "logement") |> 
-  add_row(en = "vacancy", 
-          fr = "inoccupation") |> 
-  add_row(en = "alp", 
-          fr = "pva") |> 
-  add_row(en = "ndvi", 
-          fr = "ndvi") |> 
-  add_row(en = "lst", 
-          fr = "lst") |> 
-  add_row(en = "canbics", 
-          fr = "canbics") |> 
-  add_row(en = "access", 
-          fr = "acces") |> 
-  add_row(en = "climate_risk", 
-          fr = "risque_climatique") |> 
-  add_row(en = "natural_inf", 
-          fr = "inf_naturelle") |> 
-  add_row(en = "alley", 
-          fr = "ruelle") |> 
-  add_row(en = "safety", 
-          fr = "securite") |> 
-  add_row(en = "tenure", 
-          fr = "occupation") |> 
-  add_row(en = "afford", 
-          fr = "affordabilite") |> 
-  add_row(en = "place_explorer", 
-          fr = "explorateur_lieu") |> 
-  add_row(en = "stories", 
-          fr = "histoires") |> 
-  
-  
-  
-  
+  add_row(en = "housing",
+          fr = "logement") |>
+  add_row(en = "vacancy",
+          fr = "inoccupation") |>
+  add_row(en = "alp",
+          fr = "pva") |>
+  add_row(en = "ndvi",
+          fr = "ndvi") |>
+  add_row(en = "lst",
+          fr = "lst") |>
+  add_row(en = "canbics",
+          fr = "canbics") |>
+  add_row(en = "access",
+          fr = "acces") |>
+  add_row(en = "climate_risk",
+          fr = "risque_climatique") |>
+  add_row(en = "natural_inf",
+          fr = "inf_naturelle") |>
+  add_row(en = "alley",
+          fr = "ruelle") |>
+  add_row(en = "safety",
+          fr = "securite") |>
+  add_row(en = "tenure",
+          fr = "occupation") |>
+  add_row(en = "afford",
+          fr = "affordabilite") |>
+  add_row(en = "place_explorer",
+          fr = "explorateur_lieu") |>
+  add_row(en = "stories",
+          fr = "histoires") |>
+  add_row(en = "citizenship",
+          fr = "citoyennete") |>
+  add_row(en = "dwelling",
+          fr = "logement") |>
+  add_row(en = "language",
+          fr = "langues") |>
+  add_row(en = "householdsize",
+          fr = "tailledesmenages") |>
+  add_row(en = "education",
+          fr = "education") |>
+  add_row(en = "housingdev",
+          fr = "devlogements") |>
+  add_row(en = "socialmixity",
+          fr = "mixitesociale") |>
+
+
   # New title_text_extra
   add_row(en = paste0(
     "<p>The vacancy rate is the most important indicator of rental housing ",
@@ -345,7 +630,7 @@ translation_pages <-
     "rate means the opposite. The datasets visualized on this page come fro",
     "m the CMHC and the 2021 Canadian Census."
   ),
-  fr = "Le taux d'inoccupation est l'indicateur le plus important de la disponibilité des logements locatifs. Un taux plus élevé signifie qu'il y a plus de logements disponibles, et un taux plus bas signifie le contraire. Les ensembles de données visualisés sur cette page proviennent de la SCHL et du recensement canadien de 2021.") |> 
+  fr = "Le taux d'inoccupation est l'indicateur le plus important de la disponibilité des logements locatifs. Un taux plus élevé signifie qu'il y a plus de logements disponibles, et un taux plus bas signifie le contraire. Les ensembles de données visualisés sur cette page proviennent de la SCHL et du recensement canadien de 2021.") |>
   add_row(en = paste0(
     "<p>Can-BICS rates bikeways into three tiers: high-, medium-, and low-c",
     "omfort. The datasets visualized on this page come from CANUE and the 2",
@@ -377,7 +662,7 @@ translation_pages <-
     "erçu – Système de classification du confort et de la sécurité des voie",
     "s cyclables canadiennes (Can-BICS) : convention d'appellation commune ",
     "des aménagements cyclables</a>"
-  )) |> 
+  )) |>
   add_row(en = paste0(
     "<p>This data represents the highest mean warm-season temperature recor",
     "ded at a location over a three-year span, helping to minimize the impa",
@@ -401,7 +686,7 @@ translation_pages <-
     "ction de l'environnement. Pour en savoir plus sur le calcul, <a href='",
     "https://www.canuedata.ca/tmp/CANUE_METADATA_WTLST_AVA_YY.pdf' target='",
     "_blank'>cliquez ici</a>."
-  )) |> 
+  )) |>
   add_row(en = paste0(
     "<p>NDVI plays a significant role in various applications, including an",
     "alyzing urban greenness, monitoring agricultural growth, and assessing",
@@ -416,7 +701,7 @@ translation_pages <-
     "r des données harmonisées de Landsat Sentinel-2 (HLS), le NDVI représe",
     "nte la végétation moyenne pendant la saison de croissance (du 1er mai ",
     "au 31 août)."
-  )) |> 
+  )) |>
   add_row(en = paste0(
     "<p>The datasets visualized on this page are publicly available through",
     " the <a href = 'https://donnees.montreal.ca/dataset/vulnerabilite-chan",
@@ -438,33 +723,33 @@ translation_pages <-
     "ontréal 2015-2020 (montreal.qc.ca)' target = '_blank'> Plan d'adaptati",
     "on aux changements climatiques de l'agglomération de Montréal 2015-202",
     "0</a>."
-  )) |> 
+  )) |>
   add_row(en = "<p>Montrea's green alleys have been classified into four types: green alleys, community-oriented alleys, mixed alleys, and unmaintained alleys. The datasets visualized on this page come from the City of Montreal Open Data Portal and Curbcut. To learn more about the Green Alley Program in Montreal, visit <a href = ‘https://montreal.ca/en/topics/green-alleyways’ target = ‘_blank’>the City’s green alleyways page</a>. ",
-  fr = paste0(
-    "Les ruelles vertes de Montréal ont été classées en quatre types : les ",
-    "ruelles vertes, les ruelles communautaires, les ruelles mixtes et les ",
-    "ruelles non entretenues. Les jeux de données visualisés sur cette page",
-    " proviennent du Portail de données ouvertes de la Ville de Montréal et",
-    " de Curbcut. Pour en savoir plus sur le programme des ruelles vertes à",
-    " Montréal, visitez <a href = 'https://montreal.ca/sujets/ruelles-verte",
-    "s' target = '_blank'>la page de la Ville au sujet des ruelles vertes</",
-    "a>."
-  )) |> 
+          fr = paste0(
+            "Les ruelles vertes de Montréal ont été classées en quatre types : les ",
+            "ruelles vertes, les ruelles communautaires, les ruelles mixtes et les ",
+            "ruelles non entretenues. Les jeux de données visualisés sur cette page",
+            " proviennent du Portail de données ouvertes de la Ville de Montréal et",
+            " de Curbcut. Pour en savoir plus sur le programme des ruelles vertes à",
+            " Montréal, visitez <a href = 'https://montreal.ca/sujets/ruelles-verte",
+            "s' target = '_blank'>la page de la Ville au sujet des ruelles vertes</",
+            "a>."
+          )) |>
   add_row(en = "<p>The datasets visualized on this page come from Habitat. Note that the natural infrastructure included in the study that generated this data only covers approximately 25% of the Montreal region. For more information on the methods and data used for this page, visit the publication <a href = ‘https://fr.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures-naturelles-dans-la-prevention-des-inondations-dans-la-communaute-metropolitaine-de-montreal/ ‘ target = ‘_blank’>“Le rôle des infrastructures naturelles dans la prévention des inondations dans la Communauté métropolitaine de Montréal”</a>.",
-  fr = paste0(
-    "Les ensembles de données visualisés sur cette page proviennent de H",
-    "abitat. Notez que les infrastructures naturelles incluses dans l'étude",
-    " ayant généré ces données couvrent seulement environ 25% de la région ",
-    "de Montréal. Pour plus d'informations sur les méthodes et les données ",
-    "utilisées pour cette page, visitez la publication <a href = 'https://f",
-    "r.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures",
-    "-naturelles-dans-la-prevention-des-inondations-dans-la-communaute-metr",
-    "opolitaine-de-montreal/' target = '_blank'>Le rôle des infrastructures",
-    " naturelles dans la prévention des inondations dans la Communauté métr",
-    "opolitaine de Montréal</a>.</p>"
-  )) |> 
+          fr = paste0(
+            "Les ensembles de données visualisés sur cette page proviennent de H",
+            "abitat. Notez que les infrastructures naturelles incluses dans l'étude",
+            " ayant généré ces données couvrent seulement environ 25% de la région ",
+            "de Montréal. Pour plus d'informations sur les méthodes et les données ",
+            "utilisées pour cette page, visitez la publication <a href = 'https://f",
+            "r.davidsuzuki.org/publication-scientifique/le-role-des-infrastructures",
+            "-naturelles-dans-la-prevention-des-inondations-dans-la-communaute-metr",
+            "opolitaine-de-montreal/' target = '_blank'>Le rôle des infrastructures",
+            " naturelles dans la prévention des inondations dans la Communauté métr",
+            "opolitaine de Montréal</a>.</p>"
+          )) |>
   add_row(en = "<p>Montrea's green alleys have been classified into four types: green alleys, community-oriented alleys, mixed alleys, and unmaintained alleys. The datasets visualized on this page come from the City of Montreal Open Data Portal and Curbcut. To learn more about the Green Alley Program in Montreal, visit <a href = ‘https://montreal.ca/en/topics/green-alleyways’ target = ‘_blank’>the City’s green alleyways page</a>. ",
-          fr = "Les ruelles vertes de Montréal ont été classées en quatre types : ruelles vertes, ruelles axées sur la communauté, ruelles mixtes et ruelles non entretenues. Les ensembles de données visualisés sur cette page proviennent du Portail de données ouvertes de la Ville de Montréal et de Curbcut. Pour en savoir plus sur le Programme des ruelles vertes à Montréal, visitez <a href = 'https://montreal.ca/sujets/ruelles-vertes' target = '_blank'>la page des ruelles vertes de la Ville</a>.</p>") |> 
+          fr = "Les ruelles vertes de Montréal ont été classées en quatre types : ruelles vertes, ruelles axées sur la communauté, ruelles mixtes et ruelles non entretenues. Les ensembles de données visualisés sur cette page proviennent du Portail de données ouvertes de la Ville de Montréal et de Curbcut. Pour en savoir plus sur le Programme des ruelles vertes à Montréal, visitez <a href = 'https://montreal.ca/sujets/ruelles-vertes' target = '_blank'>la page des ruelles vertes de la Ville</a>.</p>") |>
   add_row(en = "<p>Data is collected by the Service de Police de la Ville de Montréal (SPVM) and compiled by the Société d’Assurance Automobile du Québec (SAAQ), and contains information related to every road collision, including the date, location and type of parties involved (i.e. cars, bicycles or pedestrians) and injury severity. <p>For more information on road collisions and a temporal analysis of the data, please consult the <i>Road safety analysis</i> below.</p><p>References:</p><ul><li><a href = https://www.pietons.quebec/sites/default/files/documents/pietonsqc_vf_fiche_decouvrirapprochevisionzerosecuriteroutiere.pdf> Piétons Québec. (2021). Découvrir l’approche vision zéro en sécurité routière. Piétons Québec. Online:</a><li><a href='https://donnees.montreal.ca/ville-de-montreal/collisions-routieres'>Ville de Montréal. (2021). Collisions routières. Données Ouvertes Montréal.</a></ul>",
           fr = paste0(
             "Les données sont collectées par le Service de Police de la Ville de Mo",
@@ -482,9 +767,172 @@ translation_pages <-
             "es.montreal.ca/ville-de-montreal/collisions-routieres'>Ville de Montré",
             "al. (2021). Collisions routières. Données Ouvertes Montréal.</a></li><",
             "/ul>"
-          ))
-  
-  
+          )) |>
 
 
+  # Defav
+  add_row(en = "defav",
+          fr = "defav") |>
+  add_row(en = "Deprivation index",
+          fr = "Indice de défavorisation") |>
+  add_row(en = "Material and social deprivation",
+          fr = "Défavorisation matérielle et sociale") |>
+  add_row(en = "<p>According to public health and socio-economic research, deprivation, both social and material, is recognized as a key measure of inequality. The Deprivation Index, developped by the INSPQ, provides a comprehensive look at areas facing socio-economic disadvantages. It helps to identify regions where populations may be most at risk and in need of additional resources.",
+          fr = "<p>Selon les recherches en santé publique et en socio-économie, la défavorisation, tant sociale que matérielle, est reconnue comme une mesure clé de l'inégalité. L'indice de défavorisation, développé par l'INSPQ, fournit une vue d'ensemble des zones défavorisées ces plans. Il permet d'identifier les régions où les populations sont le plus à risque et ont besoin de ressources supplémentaires.") |>
+  add_row(en = "<p>The datasets visualized on this page are sourced from the Institut national de santé publique du Québec (INSPQ) and are based on the Quebec Deprivation Index. The index measures two main forms of deprivation: material deprivation, which relates to the lack of access to basic goods and services, and social deprivation, which refers to the lack of social networks and community ties. These indices allow us to understand and target inequalities more effectively.",
+          fr = "<p>Les jeux de données visualisés sur cette page proviennent de l'Institut national de santé publique du Québec (INSPQ) et sont basés sur l'indice de défavorisation du Québec. L'indice mesure deux formes principales de défavorisation : la défavorisation matérielle, qui concerne le manque d'accès aux biens et services de base, et la défavorisation sociale, qui concerne le manque de réseaux sociaux et de liens communautaires. Ces indices nous permettent de comprendre et de cibler plus efficacement les inégalités.") |>
+  add_row(en = "<p>The data presented here is sourced from the Quebec Deprivation Index, developed by INSPQ and made available through Données Québec. This index captures two main dimensions of deprivation: material and social. Material deprivation refers to limited access to goods, services, and resources that are necessary for day-to-day life, such as income and housing quality. Social deprivation, on the other hand, measures the extent to which individuals are socially isolated, with fewer family, friends, or community ties to rely on. Both dimensions are calculated at the dissemination area (DA) level and provide a quintile score from 1 to 5, with 1 representing the least deprived and 5 the most deprived areas. <p>INSPQ’s methodology involves calculating these deprivation indices based on census data, including income, employment, and housing statistics for material deprivation, and indicators such as marital status, single-parent families, and living alone for social deprivation. The index is produced for multiple census years to track changes in deprivation over time. To create the index, INSPQ applies standard normalization techniques, assigning each dissemination area to a quintile for each dimension. This allows for comparisons between regions and helps monitor socio-economic changes over time. <p>The data displayed here uses the 'Région sociosanitaire' (RSS) deprivation index. This regional-level index is calculated for each of Quebec's health regions, allowing for a higher-level understanding of socio-economic disparities in these areas.<p>The data used on this page covers the years 2021, 2016, and 2011, as published by INSPQ. Originally, these indices were calculated for dissemination areas, but Curbcut has interpolated the index for larger geographic units using population as the weighting factor. Curbcut has also interpolated the indices from previous census years to the most recent year using the same interpolation technique. This ensures consistency and comparability of the deprivation data over time, allowing for a comprehensive analysis of changes in socio-economic conditions.",
+          fr = "<p>Les données présentées proviennent de l'Indice de défavorisation du Québec, développé par l'INSPQ et rendu disponible par l'entremise de Données Québec. Cet indice saisit deux dimensions principales de la défavorisation : matérielle et sociale. La défavorisation matérielle fait référence à l'accès limité aux biens, services et ressources nécessaires à la vie quotidienne, tels que le revenu et la qualité du logement. La défavorisation sociale, quant à elle, mesure le degré d'isolement social des individus, qui ont moins de liens familiaux, amicaux ou communautaires sur lesquels s'appuyer. Les deux dimensions sont calculées au niveau de l'aire de diffusion (AD) et fournissent un score quintile de 1 à 5, 1 représentant les zones les moins défavorisées et 5 les zones les plus défavorisées. <p>La méthodologie de l'INSPQ consiste à calculer ces indices de défavorisation à partir des données de recensement, y compris les statistiques sur le revenu, l'emploi et le logement pour la défavorisation matérielle, et des indicateurs tels que l'état matrimonial, les familles monoparentales et le fait de vivre seul pour la défavorisation sociale. L'indice est produit pour plusieurs années de recensement afin de suivre l'évolution de la défavorisation dans le temps. Pour créer l'indice, l'INSPQ applique des techniques de normalisation standard, assignant chaque aire de diffusion à un quintile pour chaque dimension. Cela permet d'établir des comparaisons entre les régions et de suivre les changements socio-économiques au fil du temps. <p>Les données présentées utilisent l'indice de défavorisation par 'Région sociosanitaire' (RSS). Cet indice régional est calculé pour chacune des régions sociosanitaires du Québec, ce qui permet de mieux comprendre les disparités socioéconomiques intra-régions.<p>Les données utilisées couvrent les années 2021, 2016 et 2011, telles que publiées par l'INSPQ. À l'origine, ces indices ont été calculés pour les aires de diffusion, mais Curbcut a interpolé l'indice pour des unités géographiques plus grandes en utilisant la population comme facteur de pondération. Curbcut a également interpolé les indices des années de recensement précédentes à l'année la plus récente en utilisant la même technique d'interpolation. Cela garantit la cohérence et la comparabilité des données de défavorisation dans le temps, permettant une analyse complète des changements dans les conditions socio-économiques.") |>
+  add_row(en = "Deprivation category",
+          fr = "Catégorie de défavorisation") |>
+
+
+  # Social mixity
+  add_row(en = paste0(
+    "The social mixity composite index provides an overall measure of socia",
+    "l diversity across dissemination areas based on six key dimensio",
+    "ns: socioprofessional diversity, ethno-cultural diversity, age diversi",
+    "ty, income diversity, and educational attainment diversity. This index",
+    " combines these factors to help identify areas that are socioeconomica",
+    "lly diverse, compared to others, in an accessible and holistic manner."
+  ),
+  fr = paste0(
+    "L'indice composite de mixité sociale fournit une mesure globale de la ",
+    "diversité sociale sur la base de six dimen",
+    "sions clés : la diversité socioprofessionnelle, la diversité ethnocult",
+    "urelle, la diversité des âges, la diversité des revenus et la diversit",
+    "é des niveaux d'études. Cet indice combine ces facteurs pour aider à i",
+    "dentifier les zones qui sont socialement diversifiées, par rapport aux",
+    " autres, d'une manière accessible et holistique."
+  )) |>
+  add_row(en = paste0(
+    "In addition to the composite index, the page provides ",
+    "individual indices for each of the five components that constitute soci",
+    "al mixity: socioprofessional status, ethno-cultural background, age di",
+    "stribution, income levels, and education levels. Together, these indic",
+    "es offer insights into which neighborhoods are more or less socioecono",
+    "mically mixed."
+  ),
+  fr = paste0(
+    "Outre l'indice composite, la page fournit des indices individuels pour",
+    " chacune des cinq composantes de la mixité sociale : statut socioprofe",
+    "ssionnel, origine ethnoculturelle, répartition par âge, niveaux de rev",
+    "enus et niveaux d'éducation."
+  )) |>
+  add_row(en = paste0(
+    "    <p>The data used on this page are derived from the 2021 Canadian C",
+    "ensus, aggregated at the Dissemination Area (DA) level. The Composite ",
+    "Social Mixity Index and the individual indices provide a comparative v",
+    "iew of social diversity across Canada. This data includes multiple dim",
+    "ensions, such as educational attainment, income brackets, socioprofess",
+    "ional categories, age groups, and ethno-cultural background. Each inde",
+    "x is normalized and aggregated to allow users to make meaningful compa",
+    "risons between areas.</p>
+
+    <ul>
+        <li>
+            <strong>T",
+    "ravel Time Matrices:</strong> The indices are built using Curbcut’s tr",
+    "avel time matrices which define accessibility within a 15-minute walk ",
+    "between DAs. This means that each DA is analyzed together with the nei",
+    "ghboring DAs that can be reached within 15 minutes on foot. This appro",
+    "ach ensures that social diversity is considered not only at the indivi",
+    "dual DA level but also in the context of its surrounding areas, promot",
+    "ing a deeper understanding of neighborhood-level social mixity.
+      ",
+    "  </li>
+        <li>
+            <strong>Shannon Entropy Method:</stro",
+    "ng> To evaluate social mixity within each DA, we use the Shannon entro",
+    "py method. Shannon entropy takes into account both the richness of cat",
+    "egories (the number of different groups) and their uniformity (how ind",
+    "ividuals are distributed across these groups). For each of the dimensi",
+    "ons mentioned above (socioprofessional, age, income, education, and et",
+    "hno-cultural diversity), this method assigns a higher value when the p",
+    "roportions of categories, such as education levels, are more evenly di",
+    "stributed. This means that a DA with a more balanced distribution of i",
+    "ndividuals across different categories will have a higher entropy valu",
+    "e, indicating greater social mixity.
+        </li>
+        <li>
+      ",
+    "      <strong>Normalization:</strong> In order to ensure that no singl",
+    "e dimension dominates the composite measure, we normalize the values f",
+    "or each dimension. This guarantees that each dimension contributes equ",
+    "ally to the overall measure of social mixity. After normalization, we ",
+    "sum the normalized entropy scores to produce a composite index of soci",
+    "al mixity for each area. However, even though each dimension is normal",
+    "ized, a particular dimension may still have a significant impact on th",
+    "e composite index if it exhibits exceptionally high diversity.
+       ",
+    " </li>
+        <li>
+            <strong>Composite Social Mixity Index:",
+    "</strong> The Composite Social Mixity Index is derived by summing the ",
+    "normalized entropy scores of all five components, providing a holistic",
+    " view of the overall social mixity.
+        </li>
+    </ul>"
+  ),
+  fr = paste0(
+    "    <br />Les données utilisées sur cette page sont issues du recensem",
+    "ent canadien de 2021, agrégées au niveau de l'aire de diffusion (AD). ",
+    "L'indice composite de mixité sociale et les indices individuels fourni",
+    "ssent une vue comparative de la diversité sociale.",
+    " Ces données comprennent de multiples dimensions, telles que le niveau",
+    " d'éducation, les tranches de revenus, les catégories socioprofessionn",
+    "elles, les groupes d'âge et l'origine ethnoculturelle. Chaque indice e",
+    "st normalisé et agrégé pour permettre aux utilisateurs de faire des co",
+    "mparaisons significatives entre les régions.
+
+    <ul>
+        <li>
+  ",
+  "          <strong>Matrices de temps de transport :</strong> Les indices",
+  " sont construits en utilisant les matrices de temps de transport de Cur",
+  "bcut qui définissent l'accessibilité à 15 minutes de marche entre les ",
+  "AD. Cela signifie que chaque AD est analysée avec les AD voisines qui ",
+  "peuvent être atteintes en 15 minutes à pied. Cette approche garantit q",
+  "ue la diversité sociale est prise en compte non seulement au niveau de",
+  " l'AD individuelle, mais aussi dans le contexte de ses zones environna",
+  "ntes, ce qui favorise une compréhension plus approfondie de la mixité ",
+  "sociale au niveau du quartier.
+        </li>
+        <li>
+            ",
+  "<strong>Méthode de l'entropie de Shannon:</strong> Pour évaluer la mix",
+  "ité sociale au sein de chaque AD, nous utilisons la méthode de l'entro",
+  "pie de Shannon. L'entropie de Shannon prend en compte à la fois la ric",
+  "hesse des catégories (le nombre de groupes différents) et leur uniform",
+  "ité (la manière dont les individus sont répartis dans ces groupes). Po",
+  "ur chacune des dimensions mentionnées ci-dessus (diversité socioprofes",
+  "sionnelle, d'âge, de revenu, d'éducation et ethnoculturelle), cette mé",
+  "thode attribue une valeur plus élevée lorsque les proportions des caté",
+  "gories, telles que les niveaux d'éducation, sont plus uniformément rép",
+  "arties. Cela signifie qu'une AD avec une distribution plus équilibrée ",
+  "des individus dans les différentes catégories aura une valeur d'entrop",
+  "ie plus élevée, ce qui indique une plus grande mixité sociale.
+       ",
+  " </li>
+        <li>
+            <strong>Normalisation:</strong> Afin d",
+  "e s'assurer qu'aucune dimension ne domine la mesure composite, nous no",
+  "rmalisons les valeurs de chaque dimension. Cela garantit que chaque di",
+  "mension contribue de manière égale à la mesure globale de la mixité so",
+  "ciale. Après normalisation, nous additionnons les scores d'entropie no",
+  "rmalisés pour produire un indice composite de mixité sociale pour chaq",
+  "ue zone. Toutefois, même si chaque dimension est normalisée, une dimen",
+  "sion particulière peut encore avoir un impact significatif sur l'indic",
+  "e composite si elle présente une diversité exceptionnellement élevée.
+",
+"        </li>
+        <li>
+            <strong>Indice composite de mix",
+"ité sociale:</strong> L'indice composite de mixité sociale est obtenu ",
+"en additionnant les scores d'entropie normalisés des cinq composantes,",
+" ce qui permet d'obtenir une vision holistique de la mixité sociale gl",
+"obale.
+        </li>
+    </ul>"
+  ))
 

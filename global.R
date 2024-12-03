@@ -17,7 +17,7 @@ curbcut::load_data(site_name = "Curbcut Laval",
                    inst_prefix = "lvl",
                    mapbox_username = "curbcut",
                    default_random_address = "1950 Rue Claude-Gagné, Laval, Québec",
-                   map_zoom = 10.9,
+                   map_zoom = 11.1,
                    map_loc = c(lat = -73.71, lon = 45.61))
 
 

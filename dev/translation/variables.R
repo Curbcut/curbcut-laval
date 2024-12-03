@@ -1,35 +1,35 @@
 
 # vars <- variables[variables$source != "Canadian census", ]
-# 
+#
 # # vars <- vars[!vars$source %in% unique(vars$source)[c(3:7, 10)], ]
-# 
-# 
-# 
+#
+#
+#
 # vars <- vars[vars$source == unique(vars$source)[9], ]
-# 
-# 
-# strings <- lapply(c("var_title", "var_short", "explanation", "explanation_nodet", "exp_q5", 
+#
+#
+# strings <- lapply(c("var_title", "var_short", "explanation", "explanation_nodet", "exp_q5",
 #          "theme", "group_name", "group_diff", "source", "rankings_chr"),
-#        \(x) c(unlist(vars[[x]]), names(unlist(vars[[x]])))) |> 
-#   unlist() |> 
+#        \(x) c(unlist(vars[[x]]), names(unlist(vars[[x]])))) |>
+#   unlist() |>
 #   unique()
-# 
+#
 # strings <- strings[!is.na(strings)]
-# 
+#
 # z <- lapply(strings, \(x) {
 #   fr <- .t(x)
-#   
+#
 #   sprintf('add_row(en = "%s",
 #           fr = "%s")', x, fr)
 # })
-# 
-# paste0(z, collapse = " |>\n") |> 
+#
+# paste0(z, collapse = " |>\n") |>
 #   writeLines()
 
 
-translation_variables <- 
+translation_variables <-
   tibble(en = character(),
-         fr = character()) |> 
+         fr = character()) |>
   # Census explanation
   add_row(en = "the percentage of private households occupied by tenants",
           fr = "le pourcentage de ménages privés occupés par des locataires") |>
@@ -102,7 +102,7 @@ translation_variables <-
   add_row(en = "the percentage of the population aged 65 and above",
           fr = "le pourcentage de la population âgée de 65 ans et plus") |>
   add_row(en = "the percentage of the population aged 15 and over holding a University certificate, diploma or degree at bachelor level or above",
-          fr = "le pourcentage de la population âgée de 15 ans et plus titulaire d'un certificat, d'un diplôme ou d'un grade universitaire de niveau baccalauréat ou supérieur") |>
+          fr = "le pourcentage de la population âgée de 15 ans et plus titulaires d'un certificat, d'un diplôme ou d'un grade universitaire de niveau baccalauréat ou supérieur") |>
   add_row(en = "the percentage of the population aged 15 and over with no certificate, diploma or degree",
           fr = "le pourcentage de la population âgée de 15 ans et plus sans certificat, diplôme ou grade") |>
   add_row(en = "the total number of private households",
@@ -127,12 +127,98 @@ translation_variables <-
           fr = "le nombre total d'individus dans les ménages privés") |>
   add_row(en = "the total count of employed labour force aged 15 years and over with a usual place of work or no fixed workplace address",
           fr = "le nombre total d'actifs occupés âgés de 15 ans et plus ayant un lieu de travail habituel ou n'ayant pas d'adresse fixe sur le lieu de travail") |>
+  add_row(en = "the number of individuals in the labour force who are employed",
+          fr = "le nombre d'individus dans la population active qui occupent un emploi") |>
+  add_row(en = "the number of employed individuals with a usual place of work",
+          fr = "le nombre d'individus à l'emploi ayant un lieu de travail habituel") |>
   add_row(en = "the total count of census families",
           fr = "le nombre total de familles de recensement") |>
   add_row(en = "the total count of individuals",
           fr = "le nombre total d'individus") |>
   add_row(en = "the total count of individuals aged 15 years and over in private households",
-          fr = "le nombre total d'individus âgées de 15 ans et plus dans les ménages privés")
+          fr = "le nombre total d'individus âgées de 15 ans et plus dans les ménages privés") |>
+  add_row(en = "the percentage of the population aged 15 and over holding a secondary (high) school diploma or equivalency certificate",
+          fr = "le pourcentage de la population âgée de 15 ans et plus titulaires d'un diplôme d'études secondaires ou équivalent") |>
+  add_row(en = "the percentage of the population aged 15 and over holding a college, CEGEP or other non-university certificate or diploma",
+          fr = "le pourcentage de la population âgée de 15 ans et plus titulaires d'un certificat ou d'un diplôme d'un collège, d'un cégep ou d'un autre établissement non universitaire") |>
+  add_row(en = "the percentage of the population aged 15 and over holding a university certificate or diploma below bachelor level",
+          fr = "le pourcentage de la population âgée de 15 ans et plus titulaires d'un certificat universitaire ou d'un diplôme de niveau inférieur au baccalauréat") |>
+  add_row(en = "the average shelter cost paid by owners per month",
+          fr = "le frais de logement moyen payé par les propriétaires par mois") |>
+  add_row(en = "the percentage of private households that are occupied by a single individual",
+          fr = "le pourcentage de ménages privés composés d'une seule personne") |>
+  add_row(en = "the percentage of private households that are occupied by two people",
+          fr = "le pourcentage de ménages privés composés de deux personnes") |>
+  add_row(en = "the percentage of private households that are occupied by three people",
+          fr = "le pourcentage de ménages privés composés de trois personnes") |>
+  add_row(en = "the percentage of private households that are occupied by four or more people",
+          fr = "le pourcentage de ménages privés composés de quatre personnes ou plus") |>
+  add_row(en = "the percentage of individuals who are non-permanent residents",
+          fr = "le pourcentage d'individus qui sont des résidents non permanents") |>
+  add_row(en = "the percentage of individuals who are non-immigrants",
+          fr = "le pourcentage d'individus qui ne sont pas immigrants") |>
+  add_row(en = "the percentage of individuals who are Canadian citizens",
+          fr = "le pourcentage d'individus qui sont citoyens canadiens") |>
+  add_row(en = "the percentage of individuals who are 15 years or older and are employed",
+          fr = "le pourcentage d'individus âgées de 15 ans ou plus ayant un emploi") |>
+  add_row(en = "the percentage of individuals who are in the labour force and are unemployed",
+          fr = "le pourcentage d'individus qui sont au chômage") |>
+  add_row(en = "the percentage of individuals who work outside their municipality of residence",
+          fr = "le pourcentage d'individus qui travaillent en dehors de leur ville de résidence") |>
+  add_row(en = "the percentage of individuals who work in their municipality of residence",
+          fr = "le pourcentage d'individus qui travaillent dans leur ville de résidence") |>
+  add_row(en = "the percentage of employed individuals who work at a physical work location",
+          fr = "le pourcentage d'individus travaillent sur un lieu de travail physique") |>
+  add_row(en = "the percentage of employed individuals who work at home",
+          fr = "le pourcentage d'individus qui travaillent à domicile") |>
+  add_row(en = "the percentage of individuals that most often speak English at home",
+          fr = "le pourcentage d'individus qui parlent le plus souvent l'anglais à la maison") |>
+  add_row(en = "the percentage of individuals that most often speak French at home",
+          fr = "le pourcentage d'individus qui parlent le plus souvent le français à la maison") |>
+  add_row(en = "the percentage of individuals that most often speak a non-official language at home",
+          fr = "le pourcentage d'individus qui parlent le plus souvent une langue non officielle à la maison") |>
+  add_row(en = "the percentage of occupied private dwellings with zero bedrooms",
+          fr = "le pourcentage de logements privés occupés ne comportant aucune chambre à coucher") |>
+  add_row(en = "the percentage of occupied private dwellings with one bedroom",
+          fr = "le pourcentage de logements privés occupés avec une chambre à coucher") |>
+  add_row(en = "the percentage of occupied private dwellings with two bedrooms",
+          fr = "le pourcentage de logements privés occupés comportant deux chambres à coucher") |>
+  add_row(en = "the percentage of occupied private dwellings with three bedrooms",
+          fr = "le pourcentage de logements privés occupés comportant trois chambres à coucher") |>
+  add_row(en = "the percentage of occupied private dwellings with four or more bedrooms",
+          fr = "le pourcentage de logements privés occupés comportant quatre chambres ou plus") |>
+  add_row(en = "the percentage of occupied private dwellings built before 1960",
+          fr = "le pourcentage de logements privés occupés construits avant 1960") |>
+  add_row(en = "the percentage of occupied private dwellings built between 1961 and 1980",
+          fr = "le pourcentage de logements privés occupés construits entre 1961 et 1980") |>
+  add_row(en = "the percentage of occupied private dwellings built between 1981 and 1990",
+          fr = "le pourcentage de logements privés occupés construits entre 1981 et 1990") |>
+  add_row(en = "the percentage of occupied private dwellings built between 1991 and 2000",
+          fr = "le pourcentage de logements privés occupés construits entre 1991 et 2000") |>
+  add_row(en = "the percentage of occupied private dwellings built between 2001 and 2005",
+          fr = "le pourcentage de logements privés occupés construits entre 2001 et 2005") |>
+  add_row(en = "the percentage of occupied private dwellings built between 2006 and 2010",
+          fr = "le pourcentage de logements privés occupés construits entre 2006 et 2010") |>
+  add_row(en = "the percentage of occupied private dwellings built between 2011 and 2015",
+          fr = "le pourcentage de logements privés occupés construits entre 2011 et 2015") |>
+  add_row(en = "the percentage of occupied private dwellings built between 2016 and 2020",
+          fr = "le pourcentage de logements privés occupés construits entre 2016 et 2020") |>
+  add_row(en = "the percentage of occupied private dwellings that are semi-detached houses",
+          fr = "le pourcentage de logements privés occupés qui sont des maisons jumelées") |>
+  add_row(en = "the percentage of occupied private dwellings that are row houses",
+          fr = "le pourcentage de logements privés occupés qui sont des maisons en rangée") |>
+  add_row(en = "the percentage of occupied private dwellings that are duplexes",
+          fr = "le pourcentage de logements privés occupés qui sont des duplex") |>
+  add_row(en = "the percentage of occupied private dwellings that are apartments with less than 5 storeys",
+          fr = "le pourcentage de logements privés occupés qui sont des appartements de moins de 5 étages") |>
+  add_row(en = "the percentage of occupied private dwellings that are apartments with 5 or more storeys",
+          fr = "le pourcentage de logements privés occupés qui sont des appartements de 5 étages ou plus") |>
+  add_row(en = "the percentage of occupied private dwellings that are other types of single-attached dwellings",
+          fr = "le pourcentage de logements privés occupés qui sont d'autres types de maisons individuelles attenantes") |>
+  add_row(en = "the percentage of occupied private dwellings that are movable dwellings",
+          fr = "le pourcentage de logements privés occupés qui sont des logements mobiles") |>
+  add_row(en = "the total population aged 15 years and over",
+          fr = "la population totale âgée de 15 ans et plus")
 
 # Adding the nodet for the census
 translation_variables_nodet <- translation_variables
@@ -140,20 +226,20 @@ translation_variables_nodet$en <- gsub("^the ", "", translation_variables$en)
 translation_variables_nodet$fr <- gsub("^le |la ", "", translation_variables$fr)
 
 translation_variables <- rbind(translation_variables,
-                               translation_variables_nodet) |> 
+                               translation_variables_nodet) |>
   add_row(en = "median before-tax household incomes",
           fr = "revenu médian des ménages avant impôt") |>
   add_row(en = "prevalence of low incomes in private households based on the Low-income measure, after-tax (LIM-AT)",
           fr = "prévalence des bas revenus dans les ménages privés sur la base de la mesure des bas revenus, après impôts (MFR-AT)")
-  
+
 
 # OTHER
-translation_variables <- 
+translation_variables <-
   rbind(
     translation_variables,
     # exp_q5
     tibble(en = character(),
-           fr = character()) |> 
+           fr = character()) |>
       add_row(en = "are occupied by tenants",
               fr = "sont occupés par des locataires") |>
       add_row(en = "the average rent is",
@@ -179,7 +265,7 @@ translation_variables <-
       add_row(en = "the median household income is",
               fr = "le revenu médian des ménages est de") |>
       add_row(en = "have an income of less than $50,000",
-              fr = "ont un revenu inférieur à 50 000 euros") |>
+              fr = "ont un revenu inférieur à 50 000 dollars") |>
       add_row(en = "have an income between $50,000 and $100,000",
               fr = "ont un revenu compris entre 50 000 et 100 000 dollars") |>
       add_row(en = "have an income higher than $100,000",
@@ -225,10 +311,88 @@ translation_variables <-
       add_row(en = "are aged 65 and above",
               fr = "sont âgés de 65 ans et plus") |>
       add_row(en = "hold a University certificate, diploma or degree at bachelor level or above",
-              fr = "sont titulaire d'un certificat, d'un diplôme ou d'un titre universitaire de niveau baccalauréat ou supérieur") |>
+              fr = "sont titulaires d'un certificat, d'un diplôme ou d'un titre universitaire de niveau baccalauréat ou supérieur") |>
       add_row(en = "hold no certificate, diploma or degree",
-              fr = "n'ont aucun certificat, diplôme ou grade") |> 
-    
+              fr = "n'ont aucun certificat, diplôme ou grade") |>
+      add_row(en = "the average shelter cost is",
+              fr = "le frais de logement moyen pour les propriétaires est de") |>
+      add_row(en = "are occupied by two people",
+              fr = "sont occupés par deux personnes") |>
+      add_row(en = "are occupied by three people",
+              fr = "sont occupés par trois personnes") |>
+      add_row(en = "are occupied by four or more people",
+              fr = "sont occupés par quatre personnes ou plus") |>
+      add_row(en = "are non-permanent residents",
+              fr = "sont des résidents non permanents") |>
+      add_row(en = "are non-immigrants",
+              fr = "ne sont pas immigrants") |>
+      add_row(en = "are Canadian citizens",
+              fr = "sont citoyens canadiens") |>
+      add_row(en = "are employed",
+              fr = "sont employés") |>
+      add_row(en = "are unemployed",
+              fr = "sont au chômage") |>
+      add_row(en = "work outside their municipality of residence",
+              fr = "travaillent en dehors de leur ville de résidence") |>
+      add_row(en = "work in their municipality of residence",
+              fr = "travaillent dans leur ville de résidence") |>
+      add_row(en = "work at a physical work location",
+              fr = "travaillent sur un lieu de travail physique") |>
+      add_row(en = "work at home",
+              fr = "travaillent à domicile") |>
+      add_row(en = "most often speak English at home",
+              fr = "parlent le plus souvent l'anglais à la maison") |>
+      add_row(en = "most often speak French at home",
+              fr = "parlent le plus souvent le français à la maison") |>
+      add_row(en = "most often speak a non-official language at home",
+              fr = "parlent le plus souvent une langue autre que le français ou l'anglais à la maison") |>
+      add_row(en = "hold a secondary (high) school diploma or equivalency certificate",
+              fr = "sont titulaires d'un diplôme d'études secondaires ou d'un certificat d'équivalence") |>
+      add_row(en = "hold a college, CEGEP or other non-university certificate or diploma",
+              fr = "sont titulaires d'un certificat ou d'un diplôme d'un collège, d'un CÉGEP ou d'un autre établissement non universitaire") |>
+      add_row(en = "hold a university certificate or diploma below bachelor level",
+              fr = "sont titulaires d'un certificat universitaire ou d'un diplôme de niveau inférieur au baccalauréat") |>
+      add_row(en = "have zero bedrooms",
+              fr = "ont zéro chambre à coucher") |>
+      add_row(en = "have one bedroom",
+              fr = "ont une chambre à coucher") |>
+      add_row(en = "have two bedrooms",
+              fr = "ont deux chambres à coucher") |>
+      add_row(en = "have three bedrooms",
+              fr = "ont trois chambres à coucher") |>
+      add_row(en = "have four or more bedrooms",
+              fr = "ont quatre chambres à coucher ou plus") |>
+      add_row(en = "were built before 1960",
+              fr = "ont été construits avant 1960") |>
+      add_row(en = "were built between 1961 and 1980",
+              fr = "ont été construits entre 1961 et 1980") |>
+      add_row(en = "were built between 1981 and 1990",
+              fr = "ont été construits entre 1981 et 1990") |>
+      add_row(en = "were built between 1991 and 2000",
+              fr = "ont été construits entre 1991 et 2000") |>
+      add_row(en = "were built between 2001 and 2005",
+              fr = "ont été construits entre 2001 et 2005") |>
+      add_row(en = "were built between 2006 and 2010",
+              fr = "ont été construits entre 2006 et 2010") |>
+      add_row(en = "were built between 2011 and 2015",
+              fr = "ont été construits entre 2011 et 2015") |>
+      add_row(en = "were built between 2016 and 2020",
+              fr = "ont été construits entre 2016 et 2020") |>
+      add_row(en = "are semi-detached houses",
+              fr = "sont des maisons jumelées") |>
+      add_row(en = "are row houses",
+              fr = "sont des maisons en rangée") |>
+      add_row(en = "are duplexes",
+              fr = "sont des duplexes") |>
+      add_row(en = "are movable dwellings",
+              fr = "sont des logements mobiles") |>
+      add_row(en = "are apartments with less than 5 storeys",
+              fr = "sont des appartements de moins de 5 étages") |>
+      add_row(en = "are apartments with 5 or more storeys",
+              fr = "sont des appartements de 5 étages ou plus") |>
+      add_row(en = "are other types of single-attached dwellings",
+              fr = "sont d'autres types de maisons individuelles attenantes") |>
+
     # var title
       add_row(en = "Tenant-occupied (%)",
               fr = "Occupés par des locataires (%)") |>
@@ -303,7 +467,7 @@ translation_variables <-
       add_row(en = "Bachelor and above (%)",
               fr = "Baccalauréat et plus (%)") |>
       add_row(en = "No certificate, diploma or degree (%)",
-              fr = "Pas de certificat, de diplôme ou de grade (%)") |>
+              fr = "Aucun certificat, diplôme ou grade (%)") |>
       add_row(en = "Households",
               fr = "Ménages") |>
       add_row(en = "Tenant households",
@@ -327,8 +491,112 @@ translation_variables <-
       add_row(en = "Individuals",
               fr = "Individus") |>
       add_row(en = "Individuals aged 15 and over",
-              fr = "Individus âgés de 15 ans et plus") |> 
-      
+              fr = "Individus âgés de 15 ans et plus") |>
+      add_row(en = "Average shelter cost ($)",
+              fr = "Frais de logements moyens ($)") |>
+      add_row(en = "One-person (%)",
+              fr = "Une personne (%)") |>
+      add_row(en = "Two-person (%)",
+              fr = "Deux personnes (%)") |>
+      add_row(en = "Three-person (%)",
+              fr = "Trois personnes (%)") |>
+      add_row(en = "Four-or-more-person (%)",
+              fr = "Quatre personnes ou plus (%)") |>
+      add_row(en = "Non-permanent residents (%)",
+              fr = "Résidents non permanents (%)") |>
+      add_row(en = "Non-immigrants (%)",
+              fr = "Non-immigrants (%)") |>
+      add_row(en = "Canadian citizens (%)",
+              fr = "Citoyens canadiens (%)") |>
+      add_row(en = "Employment Rate (%)",
+              fr = "Taux d'emploi (%)") |>
+      add_row(en = "Unemployment Rate (%)",
+              fr = "Taux de chômage (%)") |>
+      add_row(en = "Work outside municipality of residence (%)",
+              fr = "Travail en dehors de la ville de résidence (%)") |>
+      add_row(en = "Work in municipality of residence (%)",
+              fr = "Travail dans la ville de résidence (%)") |>
+      add_row(en = "Work at a physical work location (%)",
+              fr = "Travail à un lieu de travail physique (%)") |>
+      add_row(en = "Work at home (%)",
+              fr = "Travail à domicile (%)") |>
+      add_row(en = "Knows French only (%)",
+              fr = "Connaît uniquement le français (%)") |>
+      add_row(en = "Knows English only (%)",
+              fr = "Connaît uniquement l'anglais (%)") |>
+      add_row(en = "Knows French and English (%)",
+              fr = "Connaît le français et l'anglais (%)") |>
+      add_row(en = "Knows neither French nor English (%)",
+              fr = "Ne connaît ni le français ni l'anglais (%)") |>
+      add_row(en = "Most often speak English at home (%)",
+              fr = "Parle le plus souvent l'anglais à la maison (%)") |>
+      add_row(en = "Most often speak French at home (%)",
+              fr = "Parle le plus souvent le français à la maison (%)") |>
+      add_row(en = "Most often speak a non-official language at home (%)",
+              fr = "Parle le plus souvent une langue non officielle à la maison (%)") |>
+      add_row(en = "Secondary school diploma or equivalent (%)",
+              fr = "Diplôme d'études secondaires ou équivalent (%)") |>
+      add_row(en = "College, CEGEP or other non-university certificate or diploma (%)",
+              fr = "Certificat ou diplôme d'un collège, d'un cégep ou d'un autre établissement non universitaire (%)") |>
+      add_row(en = "University certificate or diploma below bachelor level (%)",
+              fr = "Certificat ou diplôme universitaire inférieur au baccalauréat (%)") |>
+      add_row(en = "Bachelor and above",
+              fr = "Baccalauréat et plus") |>
+      add_row(en = "No certificate, diploma or degree",
+              fr = "Aucun certificat, diplôme ou grade") |>
+      add_row(en = "Secondary school diploma or equivalent",
+              fr = "Diplôme d'études secondaires ou équivalent") |>
+      add_row(en = "College, CEGEP or other non-university certificate or diploma",
+              fr = "Certificat ou diplôme d'un collège, d'un cégep ou d'un autre établissement non universitaire") |>
+      add_row(en = "University certificate or diploma below bachelor level",
+              fr = "Certificat ou diplôme universitaire inférieur au baccalauréat") |>
+      add_row(en = "0 bedrooms (%)",
+              fr = "0 chambres à coucher (%)") |>
+      add_row(en = "1 bedroom (%)",
+              fr = "1 chambre à coucher (%)") |>
+      add_row(en = "2 bedrooms (%)",
+              fr = "2 chambres à coucher (%)") |>
+      add_row(en = "3 bedrooms (%)",
+              fr = "3 chambres à coucher (%)") |>
+      add_row(en = "4 or more bedrooms (%)",
+              fr = "4 chambres à coucher ou plus (%)") |>
+      add_row(en = "Built <1960 (%)",
+              fr = "Construits <1960 (%)") |>
+      add_row(en = "Built 1961-1980 (%)",
+              fr = "Construits entre 1961-1980 (%)") |>
+      add_row(en = "Built 1981-1990 (%)",
+              fr = "Construits entre 1981-1990 (%)") |>
+      add_row(en = "Built 1991-2000 (%)",
+              fr = "Construits entre 1991-2000 (%)") |>
+      add_row(en = "Built 2001-2005 (%)",
+              fr = "Construits entre 2001-2005 (%)") |>
+      add_row(en = "Built 2006-2010 (%)",
+              fr = "Construits entre 2006-2010 (%)") |>
+      add_row(en = "Built 2011-2015 (%)",
+              fr = "Construits entre 2011-2015 (%)") |>
+      add_row(en = "Built 2016-2020 (%)",
+              fr = "Construits entre 2016-2020 (%)") |>
+      add_row(en = "Semi-detached (%)",
+              fr = "Semi-détaché (%)") |>
+      add_row(en = "Row houses (%)",
+              fr = "Maisons en rangée (%)") |>
+      add_row(en = "Duplex (%)",
+              fr = "Duplex (%)") |>
+      add_row(en = "Apartments, less than 5 storeys (%)",
+              fr = "Appartements de moins de 5 étages (%)") |>
+      add_row(en = "Apartments, 5 or more storeys (%)",
+              fr = "Appartements de 5 étages ou plus (%)") |>
+      add_row(en = "Other single-attached (%)",
+              fr = "Autres maisons individuelles attenantes (%)") |>
+      add_row(en = "Movable dwellings (%)",
+              fr = "Logements mobiles (%)") |>
+      add_row(en = "Individuals aged 15 years or older",
+              fr = "Individus âgés de 15 ans ou plus") |>
+      add_row(en = "Individuals employed in the labour force with a usual place of work",
+              fr = "Personnes employées dans la population active ayant un lieu de travail habituel") |>
+      add_row(en = "Employed individuals in the labour force",
+              fr = "Personnes employées dans la population active") |>
+
       # var short
       add_row(en = "Tenant",
               fr = "Locataire") |>
@@ -423,8 +691,102 @@ translation_variables <-
       add_row(en = "Individuals",
               fr = "Individus") |>
       add_row(en = "Families",
-              fr = "Familles") |> 
-    
+              fr = "Familles") |>
+      add_row(en = "Avg. shelter cost",
+              fr = "Frais logement") |>
+      add_row(en = "One",
+              fr = "Un") |>
+      add_row(en = "Two",
+              fr = "Deux") |>
+      add_row(en = "Three",
+              fr = "Trois") |>
+      add_row(en = "Four+",
+              fr = "Quatre+") |>
+      add_row(en = "Non-permanent",
+              fr = "Non permanents") |>
+      add_row(en = "Non-immigrants",
+              fr = "Non-immigrants") |>
+      add_row(en = "Citizens",
+              fr = "Citoyens") |>
+      add_row(en = "Employed",
+              fr = "Employé") |>
+      add_row(en = "Unemployed",
+              fr = "Chômeurs") |>
+      add_row(en = "Outside",
+              fr = "Hors") |>
+      add_row(en = "Within",
+              fr = "Intérieur") |>
+      add_row(en = "Home",
+              fr = "Domicile") |>
+      add_row(en = "English",
+              fr = "Anglais") |>
+      add_row(en = "French",
+              fr = "Français") |>
+      add_row(en = "Secondary",
+              fr = "Secondaire") |>
+      add_row(en = "College",
+              fr = "CÉGEP") |>
+      add_row(en = "Uni. below bachelor",
+              fr = "Uni. sous bac.") |>
+      add_row(en = "0 bedrooms",
+              fr = "0 CC") |>
+      add_row(en = "1 bedroom",
+              fr = "1 CC") |>
+      add_row(en = "2 bedrooms",
+              fr = "2 CC") |>
+      add_row(en = "3 bedrooms",
+              fr = "3 CC") |>
+      add_row(en = "4+ bedrooms",
+              fr = "4+ CC") |>
+      add_row(en = "Pre-1960",
+              fr = "<1960") |>
+      add_row(en = "1961-1980",
+              fr = "1961-1980") |>
+      add_row(en = "1981-1990",
+              fr = "1981-1990") |>
+      add_row(en = "1991-2000",
+              fr = "1991-2000") |>
+      add_row(en = "2001-2005",
+              fr = "2001-2005") |>
+      add_row(en = "2006-2010",
+              fr = "2006-2010") |>
+      add_row(en = "2011-2015",
+              fr = "2011-2015") |>
+      add_row(en = "2016-2020",
+              fr = "2016-2020") |>
+      add_row(en = "Semi-detached",
+              fr = "Semi-détaché") |>
+      add_row(en = "Row houses",
+              fr = "Rangées") |>
+      add_row(en = "Duplex",
+              fr = "Duplex") |>
+      add_row(en = "Apt. <5",
+              fr = "Apt. <5") |>
+      add_row(en = "Apt. >=5",
+              fr = "Apt. >=5") |>
+      add_row(en = "Other single-attached",
+              fr = "Autres") |>
+      add_row(en = "Movable dwellings",
+              fr = "Mobiles") |>
+      add_row(en = "15 years or older",
+              fr = "15 ans ou plus") |>
+      add_row(en = "Usual place of work",
+              fr = "Habituel") |>
+      add_row(en = "Employed",
+              fr = "Employé") |>
+      add_row(en = "Secondary",
+              fr = "Secondaire") |>
+      add_row(en = "College",
+              fr = "CÉGEP") |>
+      add_row(en = "Uni. below bachelor",
+              fr = "Uni. en dessous du baccalauréat") |>
+      add_row(en = "Secondary",
+              fr = "Secondaire") |>
+      add_row(en = "College",
+              fr = "Collège") |>
+      add_row(en = "Uni. below bachelor",
+              fr = "Uni. en dessous du baccalauréat") |>
+
     # Theme
     add_row(en = "Housing",
             fr = "Logement") |>
@@ -441,16 +803,50 @@ translation_variables <-
       add_row(en = "Age",
               fr = "Âge") |>
       add_row(en = "Education",
-              fr = "Éducation") |> 
-      
+              fr = "Éducation") |>
+      add_row(en = "Citizenship",
+              fr = "Citoyenneté") |>
+      add_row(en = "Visible minority and ethnic origin",
+              fr = "Minorité visible et origine ethnique") |>
+      add_row(en = "Employment",
+              fr = "Emploi") |>
+      add_row(en = "Dwelling size",
+              fr = "Taille des logements") |>
+      add_row(en = "Housing period of construction",
+              fr = "Période de construction des logements") |>
+      add_row(en = "Building typology",
+              fr = "Typologie des bâtiments") |>
+      add_row(en = "Housing starts and completions",
+              fr = "Mises en chantier et achèvements de logements") |>
+      add_row(en = "Knowledge of official languages",
+              fr = "Connaissance des langues officielles") |>
+      add_row(en = "Language most often spoken at home",
+              fr = "Langue la plus souvent parlée à la maison") |>
+      add_row(en = "Aborbed units",
+              fr = "Unités absorbées") |>
+      add_row(en = "Dwelling type",
+              fr = "Type de logement") |>
+      add_row(en = "Intended market",
+              fr = "Marché visé") |>
+      add_row(en = "Bureaux municipaux de laval",
+              fr = "Bureaux municipaux de laval") |>
+      add_row(en = "Dimension",
+              fr = "Dimension") |>
+      add_row(en = "Transportation time",
+              fr = "Temps de transport") |>
+      add_row(en = "Types de lieux/édifices",
+              fr = "Types de lieux/édifices") |>
+      add_row(en = "Recreation service",
+              fr = "Service de loisirs") |>
+
       # Source
       add_row(en = "Canadian census",
-              fr = "Recensement canadien") |> 
-      
+              fr = "Recensement canadien") |>
+
       # Dropdown title
       add_row(en = "Housing indicator",
-              fr = "Logement") |> 
-      
+              fr = "Logement") |>
+
       # Rankings chr
       add_row(en = "exceptionally low",
               fr = "exceptionnellement faible") |>
@@ -494,11 +890,11 @@ translation_variables <-
       add_row(en = "unusually suitable",
               fr = "anormalement convenable") |>
       add_row(en = "exceptionally suitable",
-              fr = "exceptionnellement convenable") |> 
-    
-    
+              fr = "exceptionnellement convenable") |>
+
+
     # VACANCY RATE ------------------------------------------------------------
-    
+
     add_row(en = "Vacancy rate in studio apartments",
             fr = "Taux d'inoccupation des studios") |>
       add_row(en = "Vacancy rate in one-bedroom housing units",
@@ -666,11 +1062,11 @@ translation_variables <-
       add_row(en = "an unusually high vacancy rate",
               fr = "un taux d'inoccupation anormalement élevé") |>
       add_row(en = "an exceptionally high vacancy rate",
-              fr = "un taux d'inoccupation exceptionnellement élevé") |> 
-      
-      
+              fr = "un taux d'inoccupation exceptionnellement élevé") |>
+
+
       # CURBCUT -----------------------------------------------------------------
-    
+
     add_row(en = "Active living potential",
             fr = "Potentiel de vie active") |>
       add_row(en = "Green alleys (m2) per square kilometre",
@@ -704,29 +1100,29 @@ translation_variables <-
       add_row(en = "Ecology",
               fr = "Écologie") |>
       add_row(en = "Vegetation",
-              fr = "Végétation") |> 
+              fr = "Végétation") |>
       add_row(en = "Land surface temperature",
-              fr = "Température au sol") |> 
+              fr = "Température au sol") |>
       add_row(en = "Land temp.",
-              fr = "Temp. sol") |> 
+              fr = "Temp. sol") |>
       add_row(en = "are living in areas with _X_ level of presence and intensity of vegetation",
-              fr = "vivent dans des zones où la présence et l'intensité de la végétation est de _X_") |> 
+              fr = "vivent dans des zones où la présence et l'intensité de la végétation est de _X_") |>
       add_row(en = "are living in areas with _X_ level of land surface temperature",
-              fr = "vivent dans des régions où la température à la surface du sol est de _X_") |> 
+              fr = "vivent dans des régions où la température à la surface du sol est de _X_") |>
       add_row(en = "the average warm-season land surface temperature is _X_ degrees celsius",
-              fr = "la température moyenne au sol en saison chaude est de _X_ degrés celsius") |> 
+              fr = "la température moyenne au sol en saison chaude est de _X_ degrés celsius") |>
       add_row(en = "the presence and intensity of vegetation",
-              fr = "la présence et l'intensité de la végétation") |> 
+              fr = "la présence et l'intensité de la végétation") |>
       add_row(en = "the average warm-season land surface temperature",
-              fr = "la température moyenne au sol en saison chaude") |> 
+              fr = "la température moyenne au sol en saison chaude") |>
       add_row(en = "presence and intensity of vegetation",
-              fr = "présence et intensité de végétation") |> 
+              fr = "présence et intensité de végétation") |>
       add_row(en = "average warm-season land surface temperature",
-              fr = "température moyenne au sol en saison chaude") |> 
+              fr = "température moyenne au sol en saison chaude") |>
       add_row(en = "The Canadian Urban Environmental Health Research Consortium",
-              fr = "Le Consortium canadien de recherche en santé environnementale urbaine") |> 
-      
-      
+              fr = "Le Consortium canadien de recherche en santé environnementale urbaine") |>
+
+
       add_row(en = "Curbcut",
               fr = "Curbcut") |>
       add_row(en = "exceptionally sparse",
@@ -737,41 +1133,41 @@ translation_variables <-
               fr = "anormalement dense") |>
       add_row(en = "exceptionally dense",
               fr = "exceptionnellement dense") |>
-      
+
       add_row(en = "Very low",
-              fr = "Très bas") |>
+              fr = "Très bas/se") |>
       add_row(en = "Very high",
-              fr = "Très haut") |>
-      
+              fr = "Très haut/e") |>
+
       add_row(en = "Can-BICS",
-              fr = "Can-BICS") |> 
+              fr = "Can-BICS") |>
       add_row(en = "Can-BICS metric",
-              fr = "Indice Can-BICS") |> 
+              fr = "Indice Can-BICS") |>
       add_row(en = "are living in areas with _X_ cycling infrastructure comfort and safety",
-              fr = "vivent dans des zones où le confort et la sécurité des infrastructures cyclables sont _X_") |> 
+              fr = "vivent dans des zones où le confort et la sécurité des infrastructures cyclables sont _X_") |>
       add_row(en = "the comfort and safety of bikeways",
-              fr = "le confort et la sécurité des pistes cyclables") |> 
+              fr = "le confort et la sécurité des pistes cyclables") |>
       add_row(en = "comfort and safety of bikeways",
-              fr = "confort et sécurité des pistes cyclables") |> 
+              fr = "confort et sécurité des pistes cyclables") |>
       add_row(en = "Meghan Winters (and her team) at Faculty of Health Sciences, Simon Fraser University",
-              fr = "Meghan Winters (et son équipe) à la Faculté des sciences de la santé de l'Université Simon Fraser") |> 
-      
+              fr = "Meghan Winters (et son équipe) à la Faculté des sciences de la santé de l'Université Simon Fraser") |>
+
       # Sources
       add_row(en = "DMTI",
-              fr = "DMTI") |> 
+              fr = "DMTI") |>
       add_row(en = "Canadian Open Database of Healthcare Facilities (ODHF)",
-              fr = "Base de données ouvertes sur les établissements de soins de santé (BDOESS)") |> 
+              fr = "Base de données ouvertes sur les établissements de soins de santé (BDOESS)") |>
       add_row(en = "Canadian Open Database of Educational Facilities (ODEF)",
-              fr = "Base de données ouvertes sur les établissements d'enseignement (BDOEE)") |> 
+              fr = "Base de données ouvertes sur les établissements d'enseignement (BDOEE)") |>
       add_row(en = "Canadian Open Database of Cultural and Art Facilities (ODCAF)",
-              fr = "Base de données ouvertes sur les installations culturelles et artistiques (BDOICA)") |> 
+              fr = "Base de données ouvertes sur les installations culturelles et artistiques (BDOICA)") |>
       add_row(en = "Données Québec",
-              fr = "Données Québec") |> 
-      
-      
-      
+              fr = "Données Québec") |>
+
+
+
       # Climate risk ------------------------------------------------------------
-    
+
     add_row(en = "Drought vulnerability",
             fr = "Vulnérabilité à la sécheresse") |>
       add_row(en = "Flood vulnerability",
@@ -843,7 +1239,7 @@ translation_variables <-
       add_row(en = "Minor",
               fr = "Mineure") |>
       add_row(en = "Moderate",
-              fr = "Modérée") |>
+              fr = "Modéré/e") |>
       add_row(en = "Mod.",
               fr = "Mod.") |>
       add_row(en = "Elevated",
@@ -851,11 +1247,11 @@ translation_variables <-
       add_row(en = "Elev.",
               fr = "Élevée") |>
       add_row(en = "Major",
-              fr = "Majeure") |> 
-  
-    
+              fr = "Majeure") |>
+
+
     # Natural infrastructure --------------------------------------------------
-    
+
     add_row(en = "Habitat quality",
             fr = "Qualité de l'habitat") |>
       add_row(en = "Habitat connectivity",
@@ -933,91 +1329,134 @@ translation_variables <-
       add_row(en = "Ecology",
               fr = "Écologie") |>
       add_row(en = "David Suzuki Foundation",
-              fr = "Fondation David Suzuki")  
-  ) |> 
-  
+              fr = "Fondation David Suzuki")
+  ) |>
+
 
 # Crash -------------------------------------------------------------------
 
 add_row(en = "Crashes (cyc)",
-        fr = "Collisions (vélo)") |> 
+        fr = "Collisions (vélo)") |>
   add_row(en = "Crashes (ped)",
-          fr = "Collisions (pié)") |> 
+          fr = "Collisions (pié)") |>
   add_row(en = "Crashes",
-          fr = "Collisions") |> 
+          fr = "Collisions") |>
   add_row(en = "Car crashes involving cyclists",
           fr = "Collisions de voiture impliquant des cyclistes") |>
   add_row(en = "Car crashes involving pedestrians",
-          fr = "Collisions de voiture impliquant des piétons") |> 
+          fr = "Collisions de voiture impliquant des piétons") |>
   add_row(en = "Car crashes",
-          fr = "Collisions de voiture") |> 
+          fr = "Collisions de voiture") |>
   add_row(en = "the number of registered car crashes involving cyclists",
-          fr = "le nombre de collisions de voiture enregistrés impliquant des cyclistes") |> 
+          fr = "le nombre de collisions de voiture enregistrés impliquant des cyclistes") |>
   add_row(en = "the number of registered car crashes involving pedestrians",
-          fr = "le nombre de collisions de voiture enregistrés impliquant des piétons") |> 
+          fr = "le nombre de collisions de voiture enregistrés impliquant des piétons") |>
   add_row(en = "the number of registered car crashes",
-          fr = "le nombre de collisions de voiture enregistrés") |> 
+          fr = "le nombre de collisions de voiture enregistrés") |>
   add_row(en = "number of registered car crashes involving cyclists",
-          fr = "nombre de collisions de voiture enregistrés impliquant des cyclistes") |> 
+          fr = "nombre de collisions de voiture enregistrés impliquant des cyclistes") |>
   add_row(en = "number of registered car crashes involving pedestrians",
-          fr = "nombre d'de collisions de voiture enregistrés impliquant des piétons") |> 
+          fr = "nombre d'de collisions de voiture enregistrés impliquant des piétons") |>
   add_row(en = "number of registered car crashes",
-          fr = "nombre de collisions de voiture enregistrés") |> 
+          fr = "nombre de collisions de voiture enregistrés") |>
   add_row(en = "involving cyclists were registered",
-          fr = "impliquant des cyclistes ont été enregistrés") |> 
+          fr = "impliquant des cyclistes ont été enregistrés") |>
   add_row(en = "involving pedestrians were registered",
-          fr = "impliquant des piétons ont été enregistrés") |> 
+          fr = "impliquant des piétons ont été enregistrés") |>
   add_row(en = "were registered",
-          fr = "ont été enregistrés") |> 
+          fr = "ont été enregistrés") |>
   add_row(en = "car crashes",
-          fr = "collisions de voiture") |> 
+          fr = "collisions de voiture") |>
   add_row(en = "Car crashes per square kilometre",
-          fr = "Collisions de voiture par kilomètre carré") |> 
+          fr = "Collisions de voiture par kilomètre carré") |>
   add_row(en = "Car crashes per 1,000 residents",
-          fr = "Collisions de voiture pour 1 000 habitants") |> 
+          fr = "Collisions de voiture pour 1 000 habitants") |>
   add_row(en = "Car crashes involving cyclists per square kilometre",
-          fr = "Collisions de voiture impliquant des cyclistes par kilomètre carré") |> 
+          fr = "Collisions de voiture impliquant des cyclistes par kilomètre carré") |>
   add_row(en = "Car crashes involving cyclists per 1,000 residents",
-          fr = "Collisions de voiture impliquant des cyclistes pour 1 000 habitants") |> 
+          fr = "Collisions de voiture impliquant des cyclistes pour 1 000 habitants") |>
   add_row(en = "Car crashes involving pedestrians per square kilometre",
-          fr = "Collisions de voiture impliquant des piétons par kilomètre carré") |> 
+          fr = "Collisions de voiture impliquant des piétons par kilomètre carré") |>
   add_row(en = "Car crashes involving pedestrians per 1,000 residents",
-          fr = "Collisions de voiture impliquant des piétons pour 1 000 habitants") |> 
+          fr = "Collisions de voiture impliquant des piétons pour 1 000 habitants") |>
   add_row(en = "the number of registered car crashes is _X_ per square kilometre",
-          fr = "le nombre de collisions de voiture enregistrés est de _X_ par kilomètre carré") |> 
+          fr = "le nombre de collisions de voiture enregistrés est de _X_ par kilomètre carré") |>
   add_row(en = "the number of registered car crashes is _X_ per 1,000 residents",
-          fr = "le nombre de collisions de voiture enregistrés est de _X_ pour 1 000 habitants") |> 
+          fr = "le nombre de collisions de voiture enregistrés est de _X_ pour 1 000 habitants") |>
   add_row(en = "the number of registered car crashes involving cyclists is _X_ per square kilometre",
-          fr = "le nombre de collisions de voiture impliquant des cyclistes enregistrés est de _X_ par kilomètre carré") |> 
+          fr = "le nombre de collisions de voiture impliquant des cyclistes enregistrés est de _X_ par kilomètre carré") |>
   add_row(en = "the number of registered car crashes involving cyclists is _X_ per 1,000 residents",
-          fr = "le nombre de collisions de voiture impliquant des cyclistes enregistrés est de _X_ pour 1 000 habitants") |> 
+          fr = "le nombre de collisions de voiture impliquant des cyclistes enregistrés est de _X_ pour 1 000 habitants") |>
   add_row(en = "the number of registered car crashes involving pedestrians is _X_ per square kilometre",
-          fr = "le nombre de collisions de voiture impliquant des piétons enregistrés est de _X_ par kilomètre carré") |> 
+          fr = "le nombre de collisions de voiture impliquant des piétons enregistrés est de _X_ par kilomètre carré") |>
   add_row(en = "the number of registered car crashes involving pedestrians is _X_ per 1,000 residents",
-          fr = "le nombre de collisions de voiture impliquant des piétons enregistrés est de _X_ pour 1 000 habitants") |> 
+          fr = "le nombre de collisions de voiture impliquant des piétons enregistrés est de _X_ pour 1 000 habitants") |>
   add_row(en = "the number of registered car crashes per square kilometre",
-          fr = "le nombre de collisions de voiture enregistrés par kilomètre carré") |> 
+          fr = "le nombre de collisions de voiture enregistrés par kilomètre carré") |>
   add_row(en = "the number of registered car crashes per 1,000 residents",
-          fr = "le nombre de collisions de voiture enregistrés pour 1 000 habitants") |> 
+          fr = "le nombre de collisions de voiture enregistrés pour 1 000 habitants") |>
   add_row(en = "number of registered car crashes per square kilometre",
-          fr = "nombre de collisions de voiture enregistrés par kilomètre carré") |> 
+          fr = "nombre de collisions de voiture enregistrés par kilomètre carré") |>
   add_row(en = "number of registered car crashes per 1,000 residents",
-          fr = "nombre de collisions de voiture enregistrés pour 1 000 habitants") |> 
+          fr = "nombre de collisions de voiture enregistrés pour 1 000 habitants") |>
   add_row(en = "the number of registered car crashes involving cyclists per square kilometre",
-          fr = "le nombre de collisions de voiture impliquant des cyclistes par kilomètre carré") |> 
+          fr = "le nombre de collisions de voiture impliquant des cyclistes par kilomètre carré") |>
   add_row(en = "the number of registered car crashes involving pedestrians per square kilometre",
-          fr = "le nombre de collisions de voiture impliquant des piétons par kilomètre carré") |> 
+          fr = "le nombre de collisions de voiture impliquant des piétons par kilomètre carré") |>
   add_row(en = "the number of registered car crashes involving cyclists per 1,000 residents",
-          fr = "le nombre de collisions de voiture impliquant des cyclistes pour 1 000 habitants") |> 
+          fr = "le nombre de collisions de voiture impliquant des cyclistes pour 1 000 habitants") |>
   add_row(en = "the number of registered car crashes involving pedestrians per 1,000 residents",
-          fr = "le nombre de collisions de voiture impliquant des piétons pour 1 000 habitants") |> 
+          fr = "le nombre de collisions de voiture impliquant des piétons pour 1 000 habitants") |>
   add_row(en = "number of registered car crashes involving cyclists per square kilometre",
-          fr = "nombre de collisions de voiture impliquant des cyclistes par kilomètre carré") |> 
+          fr = "nombre de collisions de voiture impliquant des cyclistes par kilomètre carré") |>
   add_row(en = "number of registered car crashes involving pedestrians per square kilometre",
-          fr = "nombre de collisions de voiture impliquant des piétons par kilomètre carré") |> 
+          fr = "nombre de collisions de voiture impliquant des piétons par kilomètre carré") |>
   add_row(en = "number of registered car crashes involving cyclists per 1,000 residents",
-          fr = "nombre de collisions de voiture impliquant des cyclistes pour 1 000 habitants") |> 
+          fr = "nombre de collisions de voiture impliquant des cyclistes pour 1 000 habitants") |>
   add_row(en = "number of registered car crashes involving pedestrians per 1,000 residents",
-          fr = "nombre de collisions de voiture impliquant des piétons pour 1 000 habitants")
+          fr = "nombre de collisions de voiture impliquant des piétons pour 1 000 habitants") |>
 
-  
+
+# Deprivation index
+  add_row(en = "Material deprivation",
+          fr = "Défavorisation matérielle") |>
+  add_row(en = "Social deprivation",
+          fr = "Défavorisation sociale") |>
+  add_row(en = "Mat. dep.",
+          fr = "Déf. mat.") |>
+  add_row(en = "Soc. dep.",
+          fr = "Déf. soc.") |>
+  add_row(en = "are living in areas with material deprivation levels ranging from _X_",
+          fr = "vivent dans des zones où le niveau de défavorisation matérielle est _X_") |>
+  add_row(en = "are living in areas with social deprivation levels ranging from _X_",
+          fr = "vivent dans des zones où le niveau de défavorisation sociale est _X_") |>
+  add_row(en = "the material deprivation index",
+          fr = "l'indice de défavorisation matérielle") |>
+  add_row(en = "the social deprivation index",
+          fr = "l'indice de défavorisation sociale") |>
+  add_row(en = "material deprivation index",
+          fr = "indice de défavorisation matérielle") |>
+  add_row(en = "social deprivation index",
+          fr = "indice de défavorisation sociale") |>
+  add_row(en = "Institut national de santé publique du Québec",
+          fr = "Institut national de santé publique du Québec") |>
+  add_row(en = "Very advantaged",
+          fr = "Très favorisé") |>
+  add_row(en = "Advantaged",
+          fr = "Favorisé") |>
+  add_row(en = "Intermediate",
+          fr = "Intermediaire") |>
+  add_row(en = "Disadvantaged",
+          fr = "Défavorisé") |>
+  add_row(en = "Very disadvantaged",
+          fr = "Très défavorisé") |>
+  add_row(en = "V. Adv.",
+          fr = "T. Fav.") |>
+  add_row(en = "Adv.",
+          fr = "Fav.") |>
+  add_row(en = "Int.",
+          fr = "Int.") |>
+  add_row(en = "Dis.",
+          fr = "Déf.") |>
+  add_row(en = "V. Dis.",
+          fr = "T. Déf.")

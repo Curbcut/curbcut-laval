@@ -101,6 +101,10 @@ source("dev/translation/stories.R", encoding = "utf-8")
 source("dev/translation/predesign_translation.R", encoding = "utf-8")
 source("dev/translation/misc.R", encoding = "utf-8")
 source("dev/translation/ages.R", encoding = "utf-8")
+source("dev/translation/education.R", encoding = "utf-8")
+source("dev/translation/householdsize.R", encoding = "utf-8")
+source("dev/translation/housingdev.R", encoding = "utf-8")
+source("dev/translation/socialmixity.R", encoding = "utf-8")
 
 
 
@@ -120,6 +124,10 @@ translation_df <-
             translation_stories,
             translation_misc,
             translation_age,
+            translation_education,
+            translation_householdsize,
+            translation_housingdev,
+            translation_socialmixity,
             translation_temp) |>
   add_row(en = "Laval Sector",
           fr = "Secteur d'aménagement") |>
@@ -183,7 +191,7 @@ is_translated <- function(strings) {
   if (length(not_there) > 0) {
     warning(sprintf("Following strings not translated: \n%s",
          paste0(unique(not_there), collapse = "\n")))
-    t_max(unique(not_there))
+    # t_max(unique(not_there))
   }
 }
 
@@ -205,6 +213,7 @@ is_translated(int_from)
 
 group_diffs <- unique(c(unname(unlist(variables$group_diff)), names(unlist(variables$group_diff))))
 group_diffs <- group_diffs[!curbcut:::is_numeric(group_diffs)]
+# is_translated(unique(group_diffs))
 is_translated(unique(variables$group_name))
 
 # PAGES
